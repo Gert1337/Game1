@@ -6,7 +6,6 @@ var health = 5
 @onready var score_label: Label = $ScoreLabel
 @onready var health_label: Label = $HealthLabel
 @export var heart_texture: Texture  
-@onready var game_manager: CanvasLayer = $"."
 @onready var health_container: HBoxContainer = $HBoxContainer
 
 

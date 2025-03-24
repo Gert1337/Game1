@@ -6,6 +6,16 @@ const JUMP_VELOCITY = -300.0
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
+
+
+func _ready():
+	print("Player sprite node: ", player_sprite)  # Debugging
+	if not player_sprite.animation_finished.is_connected(_on_animated_sprite_2d_animation_finished):
+		player_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+		print("Signal connected!")
+	else: 
+		print("Signal not connected")		
+		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -28,10 +38,11 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if direction == 0: 
 			player_sprite.play("idle")
-		else:
-			player_sprite.play("run")	
+		elif direction != 0 and player_sprite.animation not in ["lifting", "run"]:
+			play_animation("lifting")
 	else: 
-		player_sprite.play("jump")
+		if player_sprite.animation != "jump":
+			player_sprite.play("jump")
 		
 	
 	#apply movement 
@@ -41,3 +52,20 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+			
+func play_animation(anim_name: String):
+	print("Attempting to play:", anim_name)  # Debugging
+	if player_sprite.animation != anim_name:  
+		player_sprite.play(anim_name)
+		print("Animation set to:", anim_name)
+	else:
+		print("Animation was already:", anim_name)
+
+
+
+func _on_animated_sprite_2d_animation_finished():
+	print("Animation finished: " + player_sprite.animation)
+	if player_sprite.animation == "lifting":
+			print("playing run")
+			player_sprite.play("run")
