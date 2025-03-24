@@ -6,7 +6,7 @@ const ENGINE_TIMESCALE_DEFAULT = 1
 
 
 func _on_body_entered(body: Node2D) -> void:
-	GameManager.health -= 1 # Opdater score og health
+	GameManager.loose_life() # Opdater score og health
 	print("GameManager health:", GameManager.health)
 	if GameManager.health <= 0:
 		Engine.time_scale = ENGINE_TIMESCALE_SLOWED
