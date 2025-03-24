@@ -26,7 +26,7 @@ func loose_life():
 		health -= 1
 		update_health_display()
 	else: 
-		update_health_display()	
+		print("Gameover")
 		print(health)
 
 func update_health_display():

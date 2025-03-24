@@ -188,7 +188,7 @@ collision_layer = 2
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(-1, -15)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"lifting"
 autoplay = "idle"

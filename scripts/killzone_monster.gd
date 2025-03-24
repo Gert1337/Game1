@@ -21,3 +21,4 @@ func _on_timer_timeout() -> void:
 	Engine.time_scale = ENGINE_TIMESCALE_DEFAULT
 	GameManager.health = 5
 	GameManager.score = 0
+	GameManager.update_health_display()
