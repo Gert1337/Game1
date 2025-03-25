@@ -11,9 +11,11 @@ signal player_took_damage
 
 func _ready():
 	update_health_display()  # Sørger for, at UI starter med at vise hjerter
+	
 
 func _process(delta: float) -> void:
 	score_label.text ="Coins: "  + str(score)
+
 
 func add_point_to_score(): 
 	score += 1
