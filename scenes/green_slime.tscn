@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://un71sagk5ow3"]
+[gd_scene load_steps=33 format=3 uid="uid://un71sagk5ow3"]
 
 [ext_resource type="Script" uid="uid://bomdy2uw8jajs" path="res://scripts/green_slime.gd" id="1_0pvn7"]
 [ext_resource type="PackedScene" uid="uid://dbv2vbbpdo4h3" path="res://scenes/killzone.tscn" id="2_0pvn7"]
 [ext_resource type="Texture2D" uid="uid://bent4uwb1gphk" path="res://assets/sprites/SelfCritisismBest.png" id="2_4q1e0"]
+[ext_resource type="AudioStream" uid="uid://dpipnbetb37vh" path="res://assets/sounds/self_critisism.mp3" id="3_4q1e0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boo2g"]
 atlas = ExtResource("2_4q1e0")
@@ -204,7 +205,16 @@ script = ExtResource("1_0pvn7")
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_kq38r")
 autoplay = "default"
-frame_progress = 0.56567
+frame_progress = 0.725264
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
+position = Vector2(4, 2)
+stream = ExtResource("3_4q1e0")
+volume_db = 10.44
+autoplay = true
+max_distance = 239.0
+attenuation = 0.105112
+panning_strength = 2.0
 
 [node name="Killzone" parent="." instance=ExtResource("2_0pvn7")]
 
