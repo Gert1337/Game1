@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2wlnybnjy7np" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://c1l1t6hi0xanq" path="res://assets/sprites/Princess.png" id="2_qhqgy"]
-[ext_resource type="AudioStream" uid="uid://h71tp53ovxci" path="res://assets/sounds/hurt.wav" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://dqhit26giikfe" path="res://assets/sounds/ouch.mp3" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("2_qhqgy")
@@ -184,6 +184,33 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fjrip"]
 radius = 5.0
 
+[sub_resource type="Animation" id="Animation_dqkch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_qhqgy"]
 resource_name = "hurt"
 length = 0.2
@@ -210,33 +237,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_dqkch"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../AnimatedSprite2D:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
