@@ -5,14 +5,16 @@ const ENGINE_TIMESCALE_DEFAULT = 1
 @onready var timer: Timer = $Timer
 
 
+
 func _on_body_entered(body: Node2D) -> void:
-	GameManager.loose_life() # Opdater score og health
+	GameManager.loose_life(1) # Opdater score og health
 	print("GameManager health:", GameManager.health)
 	if GameManager.health <= 0:
 		Engine.time_scale = ENGINE_TIMESCALE_SLOWED
 		print("GameManager health:", GameManager.health)
 		body.get_node("CollisionShape2D").queue_free()
 		timer.start()
+		print(timer.time_left, timer.wait_time)
 
 
 

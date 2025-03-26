@@ -1,8 +1,9 @@
-[gd_scene load_steps=31 format=3 uid="uid://cd2mm4d0n5qu2"]
+[gd_scene load_steps=33 format=3 uid="uid://cd2mm4d0n5qu2"]
 
 [ext_resource type="Script" uid="uid://2wlnybnjy7np" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://c1l1t6hi0xanq" path="res://assets/sprites/Princess.png" id="2_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://dqhit26giikfe" path="res://assets/sounds/ouch.mp3" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://bqcghlhisbxea" path="res://assets/sounds/Ohnoidied.mp3" id="4_dqkch"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
 atlas = ExtResource("2_qhqgy")
@@ -210,6 +211,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../DiedSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qhqgy"]
 resource_name = "hurt"
@@ -239,9 +252,38 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "died"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.044915, 0.840351, 1), Color(1, 0.04, 0.04, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../DiedSound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
 _data = {
 &"RESET": SubResource("Animation_dqkch"),
+&"died": SubResource("Animation_qlg0r"),
 &"hurt": SubResource("Animation_qhqgy")
 }
 
@@ -263,6 +305,9 @@ shape = SubResource("CircleShape2D_fjrip")
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_qhqgy")
+
+[node name="DiedSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dqkch")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../HurtSound")

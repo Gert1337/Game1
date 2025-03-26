@@ -74,4 +74,8 @@ func _on_animated_sprite_2d_animation_finished():
 			player_sprite.play("run")
 			
 func _on_player_took_damage():
-		animation_player.play("hurt")
+		if GameManager.health > 0:
+			animation_player.play("hurt")
+		else: 
+				animation_player.play("died")
+		

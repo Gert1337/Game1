@@ -25,9 +25,9 @@ func add_point_to_score():
 func emit_damage_signal():
 	emit_signal("player_took_damage")
 
-func loose_life(): 
+func loose_life(amount): 
 	if health > 0:
-		health -= 1
+		health -= amount
 		update_health_display()
 		emit_damage_signal()
 	else: 
