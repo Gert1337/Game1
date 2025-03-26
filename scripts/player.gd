@@ -45,8 +45,10 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if direction == 0: 
 			player_sprite.play("idle")
+			can_shoot = true
 		elif direction != 0 and player_sprite.animation not in ["lifting", "run"]:
 			play_animation("lifting")
+			can_shoot=false
 	else: 
 		if player_sprite.animation != "jump":
 			player_sprite.play("jump")
@@ -77,6 +79,7 @@ func play_animation(anim_name: String):
 func _on_animated_sprite_2d_animation_finished():
 	print("Animation finished: " + player_sprite.animation)
 	if player_sprite.animation == "lifting":
+			can_shoot = false
 			print("playing run")
 			player_sprite.play("run")
 			
@@ -94,6 +97,7 @@ func shoot():
 	bullet.direction = player_direction
 
 	get_parent().add_child(bullet)  # Add bullet to the scene
-	await get_tree().create_timer(fire_rate).timeout  # Wait before next shot  # Wait before shooting again
+	await get_tree().create_timer(fire_rate).timeout
+	GameManager.loose_life(1)  # Wait before next shot  # Wait before shooting again
 	can_shoot = true
 		
