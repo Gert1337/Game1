@@ -192,7 +192,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 32.0
+"speed": 28.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_io87k"]
@@ -205,15 +205,16 @@ script = ExtResource("1_0pvn7")
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_kq38r")
 autoplay = "default"
-frame_progress = 0.725264
+frame = 25
+frame_progress = 0.290088
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 position = Vector2(4, 2)
 stream = ExtResource("3_4q1e0")
 volume_db = 10.44
 autoplay = true
-max_distance = 239.0
-attenuation = 0.105112
+max_distance = 259.0
+attenuation = 1.93188
 panning_strength = 2.0
 
 [node name="Killzone" parent="." instance=ExtResource("2_0pvn7")]

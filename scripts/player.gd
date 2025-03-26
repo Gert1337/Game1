@@ -5,8 +5,10 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-
+const HEART_BULLET = preload("res://scenes/heart_bullet.tscn")
+var can_shoot = true
+var fire_rate = 0.5  # Adjust shooting speed
+var player_direction 
 
 
 
@@ -17,6 +19,7 @@ func _ready():
 	else: 
 		print("Signal not connected")	
 	GameManager.connect("player_took_damage", Callable(self, "_on_player_took_damage"))	
+	
 		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -33,8 +36,10 @@ func _physics_process(delta: float) -> void:
 	#Flip the sprite
 	if direction > 0:
 		player_sprite.flip_h = false
+		player_direction = Vector2.RIGHT
 	elif direction < 0: 
 		player_sprite.flip_h = true
+		player_direction = Vector2.LEFT
 	
 	#Play animations
 	if is_on_floor():
@@ -46,7 +51,9 @@ func _physics_process(delta: float) -> void:
 		if player_sprite.animation != "jump":
 			player_sprite.play("jump")
 			
-		
+	if Input.is_action_just_pressed("shoot") and can_shoot:
+		shoot()
+		print("shoot")	
 	
 	#apply movement 
 	if direction:
@@ -78,4 +85,15 @@ func _on_player_took_damage():
 			animation_player.play("hurt")
 		else: 
 				animation_player.play("died")
+				
+func shoot():
+	can_shoot = false
+	var bullet = HEART_BULLET.instantiate()  # Create the bullet instance
+	bullet.position = global_position + Vector2(0, -10)
+	  # Adjust spawn position
+	bullet.direction = player_direction
+
+	get_parent().add_child(bullet)  # Add bullet to the scene
+	await get_tree().create_timer(fire_rate).timeout  # Wait before next shot  # Wait before shooting again
+	can_shoot = true
 		
