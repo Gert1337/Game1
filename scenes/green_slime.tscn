@@ -1,9 +1,11 @@
-[gd_scene load_steps=33 format=3 uid="uid://un71sagk5ow3"]
+[gd_scene load_steps=34 format=3 uid="uid://un71sagk5ow3"]
 
 [ext_resource type="Script" uid="uid://bomdy2uw8jajs" path="res://scripts/green_slime.gd" id="1_0pvn7"]
 [ext_resource type="PackedScene" uid="uid://dbv2vbbpdo4h3" path="res://scenes/killzone.tscn" id="2_0pvn7"]
 [ext_resource type="Texture2D" uid="uid://bent4uwb1gphk" path="res://assets/sprites/SelfCritisismBest.png" id="2_4q1e0"]
 [ext_resource type="AudioStream" uid="uid://dpipnbetb37vh" path="res://assets/sounds/self_critisism.mp3" id="3_4q1e0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_boo2g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boo2g"]
 atlas = ExtResource("2_4q1e0")
@@ -195,11 +197,18 @@ animations = [{
 "speed": 28.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_io87k"]
-size = Vector2(14, 12)
+[sub_resource type="CircleShape2D" id="CircleShape2D_4q1e0"]
+radius = 11.0
 
-[node name="green_slime" type="Node2D"]
+[node name="green_slime" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_0pvn7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -9)
+shape = SubResource("CircleShape2D_boo2g")
+debug_color = Color(0.720547, 0.358841, 0.809828, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
@@ -220,8 +229,8 @@ panning_strength = 2.0
 [node name="Killzone" parent="." instance=ExtResource("2_0pvn7")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, -6)
-shape = SubResource("RectangleShape2D_io87k")
+position = Vector2(-1, -9)
+shape = SubResource("CircleShape2D_4q1e0")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, -6)
