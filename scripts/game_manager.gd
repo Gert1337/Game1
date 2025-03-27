@@ -33,6 +33,9 @@ func loose_life(amount):
 	else: 
 		print("Gameover")
 		print(health)
+func gain_life(amount): 
+		health += amount
+		update_health_display()
 
 func update_health_display():
 	print("Updating health display") 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dpsvfnqarcycb"]
+[gd_scene load_steps=17 format=4 uid="uid://dpsvfnqarcycb"]
 
 [ext_resource type="PackedScene" uid="uid://bb2eu7lh73fjx" path="res://scenes/game_manager.tscn" id="1_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cd2mm4d0n5qu2" path="res://scenes/player.tscn" id="1_uwrxv"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dbv2vbbpdo4h3" path="res://scenes/killzone.tscn" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://ctdlfun4pat52" path="res://scripts/killzone_floor.gd" id="6_vtaks"]
 [ext_resource type="PackedScene" uid="uid://un71sagk5ow3" path="res://scenes/green_slime.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://dvubdxm70w5qc" path="res://scenes/heart.tscn" id="10_vtaks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_yqjtg")
@@ -289,3 +290,12 @@ position = Vector2(-214, 76)
 
 [node name="green_slime2" parent="." instance=ExtResource("7_u5sy4")]
 position = Vector2(-263, 77)
+
+[node name="heart" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(-167, 69)
+
+[node name="heart2" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(-142, 69)
+
+[node name="heart3" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(-111, 70)

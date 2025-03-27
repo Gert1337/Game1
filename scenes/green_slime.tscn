@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://un71sagk5ow3"]
+[gd_scene load_steps=57 format=3 uid="uid://un71sagk5ow3"]
 
 [ext_resource type="Script" uid="uid://bomdy2uw8jajs" path="res://scripts/green_slime.gd" id="1_0pvn7"]
 [ext_resource type="PackedScene" uid="uid://dbv2vbbpdo4h3" path="res://scenes/killzone.tscn" id="2_0pvn7"]
@@ -18,6 +18,9 @@
 [ext_resource type="AudioStream" uid="uid://bagr0r5ymew8r" path="res://assets/sounds/monsterSelfCritisism/You are not strong enough.wav" id="15_knvsw"]
 [ext_resource type="AudioStream" uid="uid://b0ah8lmmin63h" path="res://assets/sounds/monsterSelfCritisism/You are lazy.wav" id="15_uuy3i"]
 [ext_resource type="AudioStream" uid="uid://jgxhhnxprtjv" path="res://assets/sounds/monsterSelfCritisism/You can never get anything right.wav" id="16_imdt4"]
+[ext_resource type="AudioStream" uid="uid://dia7q1me6vcvd" path="res://assets/sounds/monsterSelfCritisism/dying/Danm you princess.wav" id="18_d03ei"]
+[ext_resource type="AudioStream" uid="uid://c82lya6n5ouvs" path="res://assets/sounds/monsterSelfCritisism/dying/Riiii.wav" id="19_2qu47"]
+[ext_resource type="AudioStream" uid="uid://2i27c33amvup" path="res://assets/sounds/monsterSelfCritisism/dying/You havent seen the last of me.wav" id="20_kfrrn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_boo2g"]
 
@@ -232,8 +235,142 @@ stream_14/stream = ExtResource("6_taiuf")
 stream_15/stream = ExtResource("7_d03ei")
 stream_16/stream = ExtResource("8_2qu47")
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yb2kl"]
+playback_mode = 2
+streams_count = 3
+stream_0/stream = ExtResource("18_d03ei")
+stream_1/stream = ExtResource("19_2qu47")
+stream_2/stream = ExtResource("20_kfrrn")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4q1e0"]
 radius = 11.0
+
+[sub_resource type="Animation" id="Animation_8ud5i"]
+resource_name = "Dying"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/DyingSounds:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.07, 0.24, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.23, 0.589333, 1), Color(1, 0.04, 0.04, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Killzone/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.08),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.06667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2qg7v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Killzone/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_d03ei"]
+resource_name = "Hurt"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.73),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.1, 0.1, 0.454902), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_253en"]
+_data = {
+&"Dying": SubResource("Animation_8ud5i"),
+&"Hurt": SubResource("Animation_d03ei"),
+&"RESET": SubResource("Animation_2qg7v")
+}
 
 [node name="green_slime" type="Area2D"]
 collision_layer = 2
@@ -252,7 +389,7 @@ autoplay = "default"
 frame = 25
 frame_progress = 0.290088
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
+[node name="SelfCritisismSounds" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 position = Vector2(4, 2)
 stream = SubResource("AudioStreamRandomizer_4q1e0")
 volume_db = 10.44
@@ -263,6 +400,9 @@ max_polyphony = 7
 panning_strength = 2.83
 bus = &"SelfCritisismMonster"
 playback_type = 1
+
+[node name="DyingSounds" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
+stream = SubResource("AudioStreamRandomizer_yb2kl")
 
 [node name="Killzone" parent="." instance=ExtResource("2_0pvn7")]
 
@@ -277,3 +417,8 @@ target_position = Vector2(9, 0)
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, -6)
 target_position = Vector2(-9, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_253en")
+}
