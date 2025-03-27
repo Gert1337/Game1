@@ -96,11 +96,11 @@ func shoot():
 	can_shoot = false
 	var bullet = HEART_BULLET.instantiate()  # Create the bullet instance
 	bullet.position = global_position + Vector2(0, -10)
+	GameManager.loose_life(1)
 	  # Adjust spawn position
 	bullet.direction = player_direction
 
 	get_parent().add_child(bullet)  # Add bullet to the scene
-	await get_tree().create_timer(fire_rate).timeout
-	GameManager.loose_life(1)  # Wait before next shot  # Wait before shooting again
+	await get_tree().create_timer(fire_rate).timeout  # Wait before next shot  # Wait before shooting again
 	can_shoot = true
 		
