@@ -43,4 +43,4 @@ func spawn_hearts(amount: int, spacing: float = 20.0):
 	for i in range(amount):
 		var heart = HEART.instantiate()
 		heart.position = global_position + Vector2(i * spacing, -10) 
-		get_parent().add_child(heart)
+		get_parent().call_deferred("add_child", heart)
