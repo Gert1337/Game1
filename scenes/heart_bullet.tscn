@@ -1,7 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckpb167lsa7mc"]
+[gd_scene load_steps=9 format=3 uid="uid://ckpb167lsa7mc"]
 
 [ext_resource type="Script" uid="uid://cfle67eo8whkq" path="res://scripts/heart_bullet.gd" id="1_rjicf"]
-[ext_resource type="Texture2D" uid="uid://dttgf86ejgv5v" path="res://assets/sprites/Heart.png" id="2_rj47w"]
+[ext_resource type="Texture2D" uid="uid://u7bm07ghnf3j" path="res://assets/sprites/beating_heart_bullet.png" id="2_xee4f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7di77"]
+atlas = ExtResource("2_xee4f")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnl4f"]
+atlas = ExtResource("2_xee4f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e23ex"]
+atlas = ExtResource("2_xee4f")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xpr8"]
+atlas = ExtResource("2_xee4f")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kakrj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7di77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnl4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e23ex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xpr8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kj6b2"]
 
@@ -10,8 +46,10 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_rjicf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_rj47w")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kakrj")
+autoplay = "default"
+frame_progress = 0.569158
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kj6b2")

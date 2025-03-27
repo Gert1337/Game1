@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed: float = 500  # Speed of the bullet
+@export var speed: float = 100  # Speed of the bullet
 @export var direction: Vector2 = Vector2.RIGHT  # Default direction
 
 func _process(delta):
