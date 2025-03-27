@@ -7,6 +7,7 @@ var max_distance: float = 410  # Set the maximum travel distance
 var start_position: Vector2  # Store the starting position
 
 func _ready():
+	start_position = position
 	if direction.x < 0:
 		sprite_2d.flip_h = false 
 	else: 

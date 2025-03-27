@@ -7,9 +7,13 @@ var health = 2
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_stream_player: AudioStreamPlayer2D = $AnimatedSprite2D/AudioStreamPlayer2D
 
 func _ready() -> void:
 	add_to_group("monsters")
+	audio_stream_player.play()
+	 # Restart when finished
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if ray_cast_right.is_colliding():
@@ -28,3 +32,4 @@ func take_damage() -> void:
 	print("Monster hit! Health is now: ", health)
 	if health <= 0:
 		queue_free()  # Remove the monster from the scene
+		

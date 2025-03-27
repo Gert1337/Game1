@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djg3velgpwpyi"
+path="res://.godot/imported/Ha! A princess.wav-53c9070ae07d1045db291470e6d471e4.sample"
+
+[deps]
+
+source_file="res://assets/sounds/monsterSelfCritisism/Ha! A princess.wav"
+dest_files=["res://.godot/imported/Ha! A princess.wav-53c9070ae07d1045db291470e6d471e4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

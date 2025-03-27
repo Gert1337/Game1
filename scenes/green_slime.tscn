@@ -1,9 +1,13 @@
-[gd_scene load_steps=34 format=3 uid="uid://un71sagk5ow3"]
+[gd_scene load_steps=39 format=3 uid="uid://un71sagk5ow3"]
 
 [ext_resource type="Script" uid="uid://bomdy2uw8jajs" path="res://scripts/green_slime.gd" id="1_0pvn7"]
 [ext_resource type="PackedScene" uid="uid://dbv2vbbpdo4h3" path="res://scenes/killzone.tscn" id="2_0pvn7"]
 [ext_resource type="Texture2D" uid="uid://bent4uwb1gphk" path="res://assets/sprites/SelfCritisismBest.png" id="2_4q1e0"]
-[ext_resource type="AudioStream" uid="uid://dpipnbetb37vh" path="res://assets/sounds/self_critisism.mp3" id="3_4q1e0"]
+[ext_resource type="AudioStream" uid="uid://djg3velgpwpyi" path="res://assets/sounds/monsterSelfCritisism/Ha! A princess.wav" id="3_mp6ra"]
+[ext_resource type="AudioStream" uid="uid://b0mve3gf6wa7t" path="res://assets/sounds/monsterSelfCritisism/Just realize it.wav" id="4_uuy3i"]
+[ext_resource type="AudioStream" uid="uid://c3vrrt11efdd8" path="res://assets/sounds/monsterSelfCritisism/Never beautiful.wav" id="9_kfrrn"]
+[ext_resource type="AudioStream" uid="uid://bttv285kb5spr" path="res://assets/sounds/monsterSelfCritisism/Noonereallylikesu.wav" id="10_yb2kl"]
+[ext_resource type="AudioStream" uid="uid://cjp0hm763bhfa" path="res://assets/sounds/monsterSelfCritisism/They will never see you ass worthy.wav" id="12_2qg7v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_boo2g"]
 
@@ -197,6 +201,14 @@ animations = [{
 "speed": 28.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4q1e0"]
+streams_count = 6
+stream_0/stream = ExtResource("3_mp6ra")
+stream_1/stream = ExtResource("4_uuy3i")
+stream_2/stream = ExtResource("9_kfrrn")
+stream_3/stream = ExtResource("10_yb2kl")
+stream_4/stream = ExtResource("12_2qg7v")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_4q1e0"]
 radius = 11.0
 
@@ -219,12 +231,15 @@ frame_progress = 0.290088
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 position = Vector2(4, 2)
-stream = ExtResource("3_4q1e0")
+stream = SubResource("AudioStreamRandomizer_4q1e0")
 volume_db = 10.44
 autoplay = true
 max_distance = 259.0
 attenuation = 1.93188
-panning_strength = 2.0
+max_polyphony = 7
+panning_strength = 2.83
+bus = &"SelfCritisismMonster"
+playback_type = 1
 
 [node name="Killzone" parent="." instance=ExtResource("2_0pvn7")]
 

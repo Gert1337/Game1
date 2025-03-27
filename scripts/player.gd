@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -300.0
 const HEART_BULLET = preload("res://scenes/heart_bullet.tscn")
 var can_shoot = true
 var fire_rate = 0.5  # Adjust shooting speed
-var player_direction 
+var player_direction = Vector2.RIGHT
 
 
 
@@ -51,8 +51,7 @@ func _physics_process(delta: float) -> void:
 			can_shoot=false
 	else: 
 		if player_sprite.animation != "jump":
-			player_sprite.play("jump")
-			
+			player_sprite.play("jump")	
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		if GameManager.health == 1: 
 			print("I cant shoot or ill die")
@@ -96,9 +95,10 @@ func shoot():
 	can_shoot = false
 	var bullet = HEART_BULLET.instantiate()  # Create the bullet instance
 	bullet.position = global_position + Vector2(0, -10)
-	GameManager.loose_life(1)
 	  # Adjust spawn position
 	bullet.direction = player_direction
+	print(bullet.position)
+	GameManager.loose_life(1)
 
 	get_parent().add_child(bullet)  # Add bullet to the scene
 	await get_tree().create_timer(fire_rate).timeout  # Wait before next shot  # Wait before shooting again
