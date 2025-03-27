@@ -54,8 +54,11 @@ func _physics_process(delta: float) -> void:
 			player_sprite.play("jump")
 			
 	if Input.is_action_just_pressed("shoot") and can_shoot:
-		shoot()
-		print("shoot")	
+		if GameManager.health == 1: 
+			print("I cant shoot or ill die")
+		else : 
+			shoot()
+			print("shoot")	
 	
 	#apply movement 
 	if direction:
