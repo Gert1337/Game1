@@ -9,7 +9,7 @@ var health = 2
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio_stream_player: AudioStreamPlayer2D = $AnimatedSprite2D/SelfCritisismSounds
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-const HEART = preload("res://scenes/heart.tscn")
+
 
 func _ready() -> void:
 	add_to_group("monsters")
@@ -37,10 +37,5 @@ func take_damage() -> void:
 		speed = 0
 		audio_stream_player.queue_free()
 		animation_player.play("Dying")
-		spawn_hearts(2)
+		Helper.spawn_hearts(global_position, 2)
 		
-func spawn_hearts(amount: int, spacing: float = 20.0):
-	for i in range(amount):
-		var heart = HEART.instantiate()
-		heart.position = global_position + Vector2(i * spacing, -10) 
-		get_parent().call_deferred("add_child", heart)
