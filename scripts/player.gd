@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 130.0
+var speed = 130.0
 const JUMP_VELOCITY = -300.0
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -61,9 +61,9 @@ func _physics_process(delta: float) -> void:
 	
 	#apply movement 
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
 	
@@ -90,6 +90,8 @@ func _on_player_took_damage():
 			animation_player.play("hurt")
 		else: 
 				animation_player.play("died")
+				speed = 0
+				
 				
 func shoot():
 	can_shoot = false
