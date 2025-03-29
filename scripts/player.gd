@@ -12,6 +12,7 @@ var player_direction = Vector2.RIGHT
 
 
 
+
 func _ready():
 	if not player_sprite.animation_finished.is_connected(_on_animated_sprite_2d_animation_finished):
 		player_sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
@@ -22,6 +23,7 @@ func _ready():
 	
 		
 func _physics_process(delta: float) -> void:
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -66,7 +68,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
 	move_and_slide()
-	
+	position = position.round()
 			
 func play_animation(anim_name: String):
 	print("Attempting to play:", anim_name)  # Debugging
