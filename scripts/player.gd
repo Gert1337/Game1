@@ -9,6 +9,7 @@ const HEART_BULLET = preload("res://scenes/heart_bullet.tscn")
 var can_shoot = true
 var fire_rate = 0.5  # Adjust shooting speed
 var player_direction = Vector2.RIGHT
+var shooting = false
 
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -104,8 +105,10 @@ func _on_animated_sprite_2d_animation_finished():
 			player_sprite.play("run")
 			
 func _on_player_took_damage():
-		if GameManager.health > 0:
+		if GameManager.health > 0 and shooting != true:
 			animation_player.play("hurt")
+		if  GameManager.health > 0 and shooting == true:
+			animation_player.play("shooting")
 		else: 
 				animation_player.play("died")
 				speed = 0
@@ -113,6 +116,7 @@ func _on_player_took_damage():
 				
 func shoot():
 	can_shoot = false
+	shooting = true
 	var bullet = HEART_BULLET.instantiate()  # Create the bullet instance
 	bullet.position = global_position + Vector2(0, -10)
 	  # Adjust spawn position
@@ -123,4 +127,5 @@ func shoot():
 	get_parent().add_child(bullet)  # Add bullet to the scene
 	await get_tree().create_timer(fire_rate).timeout  # Wait before next shot  # Wait before shooting again
 	can_shoot = true
+	shooting = false
 		
