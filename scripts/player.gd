@@ -107,7 +107,7 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_player_took_damage():
 		if GameManager.health > 0 and shooting != true:
 			animation_player.play("hurt")
-		if  GameManager.health > 0 and shooting == true:
+		elif  GameManager.health > 0 and shooting == true:
 			animation_player.play("shooting")
 		else: 
 				animation_player.play("died")
