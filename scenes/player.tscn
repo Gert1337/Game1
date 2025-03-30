@@ -318,4 +318,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_qlg0r")
 }
 
+[node name="CoyoteJumpTimer" type="Timer" parent="."]
+wait_time = 0.021
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

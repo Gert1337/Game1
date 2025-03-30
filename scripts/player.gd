@@ -5,15 +5,14 @@ var speed = 130.0
 const JUMP_VELOCITY = -300.0
 const ACCELARATION = 600.0
 const FRICTION = 600.0
-@onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 const HEART_BULLET = preload("res://scenes/heart_bullet.tscn")
 var can_shoot = true
 var fire_rate = 0.5  # Adjust shooting speed
 var player_direction = Vector2.RIGHT
 
-
-
+@onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var coyote_jump_timer: Timer = $CoyoteJumpTimer
 
 func _ready():
 	if not player_sprite.animation_finished.is_connected(_on_animated_sprite_2d_animation_finished):
@@ -33,18 +32,23 @@ func _physics_process(delta: float) -> void:
 	handle_friction(direction, delta)
 	handle_playersprite_flipping(direction)
 	handle_player_animation(direction)
+	var was_on_floor = is_on_floor()
 	move_and_slide()
+	var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >=0 
+	if just_left_ledge:
+			print("timer start")
+			coyote_jump_timer.start()
 	position = position.round()
 	
 func apply_gravity(delta):  
 		if not is_on_floor():
 			velocity += get_gravity() * delta	
 func handle_jumping(delta):
-		if is_on_floor():
+		if is_on_floor() or coyote_jump_timer.time_left > 0.0:
 			if Input.is_action_just_pressed("jump"):
 				print("trying to jump")
 				velocity.y = JUMP_VELOCITY
-		else:
+		if not is_on_floor():
 				if Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY / 2:
 					velocity.y = JUMP_VELOCITY / 2
 func handle_accelaration(direction, delta):
