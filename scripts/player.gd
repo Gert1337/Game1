@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 var speed = 130.0
 const JUMP_VELOCITY = -300.0
+const ACCELARATION = 600.0
+const FRICTION = 600.0
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 const HEART_BULLET = preload("res://scenes/heart_bullet.tscn")
@@ -23,26 +25,43 @@ func _ready():
 	
 		
 func _physics_process(delta: float) -> void:
-
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
+	apply_gravity(delta)
+	handle_jumping(delta)
 	# Get the input direction : -1, 0, 1
 	var direction := Input.get_axis("move_left", "move_right")
+	handle_accelaration(direction, delta)
+	handle_friction(direction, delta)
+	handle_playersprite_flipping(direction)
+	handle_player_animation(direction)
+	move_and_slide()
+	position = position.round()
 	
-	#Flip the sprite
+func apply_gravity(delta):  
+		if not is_on_floor():
+			velocity += get_gravity() * delta	
+func handle_jumping(delta):
+		if is_on_floor():
+			if Input.is_action_just_pressed("jump"):
+				print("trying to jump")
+				velocity.y = JUMP_VELOCITY
+		else:
+				if Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY / 2:
+					velocity.y = JUMP_VELOCITY / 2
+func handle_accelaration(direction, delta):
+	if direction !=0:
+		velocity.x = move_toward(velocity.x, speed * direction, ACCELARATION * delta)
+func handle_friction(direction,delta):
+	if direction == 0:
+		velocity.x = move_toward(velocity.x, 0, FRICTION * delta) 
+func handle_playersprite_flipping(direction):
 	if direction > 0:
 		player_sprite.flip_h = false
 		player_direction = Vector2.RIGHT
 	elif direction < 0: 
 		player_sprite.flip_h = true
 		player_direction = Vector2.LEFT
-	
+		
+func handle_player_animation(direction):
 	#Play animations
 	if is_on_floor():
 		if direction == 0: 
@@ -54,21 +73,14 @@ func _physics_process(delta: float) -> void:
 	else: 
 		if player_sprite.animation != "jump":
 			player_sprite.play("jump")	
+			
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		if GameManager.health == 1: 
 			print("I cant shoot or ill die")
 		else : 
 			shoot()
 			print("shoot")	
-	
-	#apply movement 
-	if direction:
-		velocity.x = direction * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-
-	move_and_slide()
-	position = position.round()
+	 
 			
 func play_animation(anim_name: String):
 	print("Attempting to play:", anim_name)  # Debugging
