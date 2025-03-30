@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2811s6pof3yf"]
+[gd_scene load_steps=2 format=3 uid="uid://dh8ax4e8vwnk8"]
 
 [ext_resource type="Script" uid="uid://cmqwpt3t3lg6l" path="res://scripts/killzone_monster.gd" id="1_bkfg7"]
 
@@ -8,7 +8,7 @@ script = ExtResource("1_bkfg7")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 20.459
+wait_time = 35.413
 one_shot = true
 ignore_time_scale = true
 

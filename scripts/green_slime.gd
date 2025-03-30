@@ -3,12 +3,13 @@ extends Area2D
 var speed = 60
 var direction = 1 
 var health = 2
-
-@onready var ray_cast_right: RayCast2D = $RayCastRight
-@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var ray_cast_right: RayCast2D = $CritisismKilzone/RayCastRight
+@onready var ray_cast_left: RayCast2D = $CritisismKilzone/RayCastLeft
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio_stream_player: AudioStreamPlayer2D = $AnimatedSprite2D/SelfCritisismSounds
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
 
 
 func _ready() -> void:
@@ -26,6 +27,8 @@ func _process(delta: float) -> void:
 		animated_sprite.flip_h = false
 	
 	position.x += direction *  speed * delta 
+	
+	
 	
 	
 # Function to handle taking damage

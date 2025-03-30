@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dgc7xw0fcfc5i"
+path="res://.godot/imported/You could have given up from det start.wav-d3dc7b2cbd49ed09ac68a2bbf611c8c6.sample"
+
+[deps]
+
+source_file="res://assets/sounds/monsterSelfCritisism/victory/You could have given up from det start.wav"
+dest_files=["res://.godot/imported/You could have given up from det start.wav-d3dc7b2cbd49ed09ac68a2bbf611c8c6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

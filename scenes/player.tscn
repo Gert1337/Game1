@@ -288,7 +288,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 3
+collision_mask = 3
 floor_constant_speed = true
 floor_block_on_wall = false
 floor_snap_length = 10.0
@@ -319,7 +320,7 @@ libraries = {
 }
 
 [node name="CoyoteJumpTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.116
 one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

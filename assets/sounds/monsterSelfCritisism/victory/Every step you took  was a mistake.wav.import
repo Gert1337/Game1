@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bay2cugexmtw"
+path="res://.godot/imported/Every step you took  was a mistake.wav-92bce48a12f08a3c0c68fcc10bbc7155.sample"
+
+[deps]
+
+source_file="res://assets/sounds/monsterSelfCritisism/victory/Every step you took  was a mistake.wav"
+dest_files=["res://.godot/imported/Every step you took  was a mistake.wav-92bce48a12f08a3c0c68fcc10bbc7155.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

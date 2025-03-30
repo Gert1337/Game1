@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://i2miig1xv28p"
+path="res://.godot/imported/Hahah ill run amok in your mind.wav-3ce0dd4f3f38248b2d98514113ddb383.sample"
+
+[deps]
+
+source_file="res://assets/sounds/monsterSelfCritisism/victory/Hahah ill run amok in your mind.wav"
+dest_files=["res://.godot/imported/Hahah ill run amok in your mind.wav-3ce0dd4f3f38248b2d98514113ddb383.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

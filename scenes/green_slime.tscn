@@ -1,7 +1,6 @@
-[gd_scene load_steps=57 format=3 uid="uid://un71sagk5ow3"]
+[gd_scene load_steps=63 format=3 uid="uid://un71sagk5ow3"]
 
 [ext_resource type="Script" uid="uid://bomdy2uw8jajs" path="res://scripts/green_slime.gd" id="1_0pvn7"]
-[ext_resource type="PackedScene" uid="uid://dbv2vbbpdo4h3" path="res://scenes/killzone.tscn" id="2_0pvn7"]
 [ext_resource type="Texture2D" uid="uid://bent4uwb1gphk" path="res://assets/sprites/SelfCritisismBest.png" id="2_4q1e0"]
 [ext_resource type="AudioStream" uid="uid://djg3velgpwpyi" path="res://assets/sounds/monsterSelfCritisism/Ha! A princess.wav" id="3_mp6ra"]
 [ext_resource type="AudioStream" uid="uid://b0mve3gf6wa7t" path="res://assets/sounds/monsterSelfCritisism/Just realize it.wav" id="4_uuy3i"]
@@ -21,6 +20,12 @@
 [ext_resource type="AudioStream" uid="uid://dia7q1me6vcvd" path="res://assets/sounds/monsterSelfCritisism/dying/Danm you princess.wav" id="18_d03ei"]
 [ext_resource type="AudioStream" uid="uid://c82lya6n5ouvs" path="res://assets/sounds/monsterSelfCritisism/dying/Riiii.wav" id="19_2qu47"]
 [ext_resource type="AudioStream" uid="uid://2i27c33amvup" path="res://assets/sounds/monsterSelfCritisism/dying/You havent seen the last of me.wav" id="20_kfrrn"]
+[ext_resource type="AudioStream" uid="uid://7r354dh4v7kh" path="res://assets/sounds/monsterSelfCritisism/victory/Ha ha ha.wav" id="21_yb2kl"]
+[ext_resource type="AudioStream" uid="uid://c3o0gvspwxe43" path="res://assets/sounds/monsterSelfCritisism/victory/I win you loose.wav" id="23_2qg7v"]
+[ext_resource type="AudioStream" uid="uid://bay2cugexmtw" path="res://assets/sounds/monsterSelfCritisism/victory/Every step you took  was a mistake.wav" id="23_yb2kl"]
+[ext_resource type="AudioStream" uid="uid://i2miig1xv28p" path="res://assets/sounds/monsterSelfCritisism/victory/Hahah ill run amok in your mind.wav" id="24_2qg7v"]
+[ext_resource type="PackedScene" uid="uid://odfcx83hejqn" path="res://scenes/killzone_critisis_monster.tscn" id="24_yb2kl"]
+[ext_resource type="AudioStream" uid="uid://df3dhfvakj2k6" path="res://assets/sounds/monsterSelfCritisism/victory/Oh don_t look så suprised, you always knew.wav" id="25_253en"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_boo2g"]
 
@@ -242,8 +247,13 @@ stream_0/stream = ExtResource("18_d03ei")
 stream_1/stream = ExtResource("19_2qu47")
 stream_2/stream = ExtResource("20_kfrrn")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4q1e0"]
-radius = 11.0
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_253en"]
+streams_count = 5
+stream_0/stream = ExtResource("21_yb2kl")
+stream_1/stream = ExtResource("23_2qg7v")
+stream_2/stream = ExtResource("23_yb2kl")
+stream_3/stream = ExtResource("24_2qg7v")
+stream_4/stream = ExtResource("25_253en")
 
 [sub_resource type="Animation" id="Animation_8ud5i"]
 resource_name = "Dying"
@@ -284,25 +294,13 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true]
 }
-tracks/3/type = "value"
+tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Killzone/CollisionShape2D:disabled")
+tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.08),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(2.06667),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -355,25 +353,54 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Killzone/CollisionShape2D:disabled")
+tracks/2/path = NodePath("AnimatedSprite2D/VictorySound:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wsrtq"]
+resource_name = "Victory"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/VictorySound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.73333, 3.23333, 4.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 48.618, 4.972, 1), Color(1, 1, 1, 1), Color(1, 48.618, 4.972, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_253en"]
 _data = {
 &"Dying": SubResource("Animation_8ud5i"),
 &"Hurt": SubResource("Animation_d03ei"),
-&"RESET": SubResource("Animation_2qg7v")
+&"RESET": SubResource("Animation_2qg7v"),
+&"Victory": SubResource("Animation_wsrtq")
 }
 
 [node name="green_slime" type="Area2D"]
-collision_layer = 2
+collision_layer = 3
 collision_mask = 2
 script = ExtResource("1_0pvn7")
 
@@ -404,21 +431,15 @@ playback_type = 1
 [node name="DyingSounds" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 stream = SubResource("AudioStreamRandomizer_yb2kl")
 
-[node name="Killzone" parent="." instance=ExtResource("2_0pvn7")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(-1, -9)
-shape = SubResource("CircleShape2D_4q1e0")
-
-[node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(0, -6)
-target_position = Vector2(9, 0)
-
-[node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(0, -6)
-target_position = Vector2(-9, 0)
+[node name="VictorySound" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
+stream = SubResource("AudioStreamRandomizer_253en")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_253en")
 }
+
+[node name="CritisismKilzone" parent="." instance=ExtResource("24_yb2kl")]
+position = Vector2(16, -6)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

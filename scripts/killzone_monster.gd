@@ -4,6 +4,8 @@ const ENGINE_TIMESCALE_SLOWED = 0.5
 const ENGINE_TIMESCALE_DEFAULT = 1
 @onready var timer: Timer = $Timer
 var health = 2
+@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
+@onready var self_critisism_sounds: AudioStreamPlayer2D = $"../AnimatedSprite2D/SelfCritisismSounds"
 
 func _ready() -> void:
 	add_to_group("monsters")
@@ -11,13 +13,12 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	GameManager.loose_life(1) # Opdater score og health
-	print("GameManager health:", GameManager.health)
 	if GameManager.health <= 0:
 		Engine.time_scale = ENGINE_TIMESCALE_SLOWED
-		print("GameManager health:", GameManager.health)
+		self_critisism_sounds.queue_free()
+		animation_player.play("Victory")
 		body.get_node("CollisionShape2D").queue_free()
 		timer.start()
-		print(timer.time_left, timer.wait_time)
 	
 
 

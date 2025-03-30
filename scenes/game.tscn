@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://dpsvfnqarcycb"]
+[gd_scene load_steps=13 format=4 uid="uid://dpsvfnqarcycb"]
 
 [ext_resource type="PackedScene" uid="uid://bb2eu7lh73fjx" path="res://scenes/game_manager.tscn" id="1_0tnpc"]
 [ext_resource type="Script" uid="uid://ceuoddai3vpqr" path="res://scenes/game.gd" id="1_gee14"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dbv2vbbpdo4h3" path="res://scenes/killzone.tscn" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://ctdlfun4pat52" path="res://scripts/killzone_floor.gd" id="6_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bw51ieq5lg4jn" path="res://scenes/zoom_out.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://un71sagk5ow3" path="res://scenes/green_slime.tscn" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("2_iywne")
@@ -258,7 +259,7 @@ tile_set = SubResource("TileSet_u5sy4")
 
 [node name="PlayerInteractionLayer" type="TileMapLayer" parent="."]
 z_index = 5
-tile_map_data = PackedByteArray("AAASAAEAAQAEAAkAAAATAAEAAQAEAAkAAAAUAAEAAQAEAAkAAAAVAAEAAQAEAAkAAAAWAAEAAQAEAAkAAAAXAAEAAQAEAAkAAAAKAAEAAQAAAA8AABAJAAAAAQABAA4AABAJAAEAAQAIAA8AABAPAAEAAQAAAA8AAAAQAAAAAQABAA4AAAAQAAEAAQABAA8AAAARAAAAAQACAA0AAAASAAAAAQACAA0AAAATAAAAAQACAA0AAAAUAAAAAQACAA0AAAAVAAAAAQACAA0AAAAWAAAAAQACAA0AAAAXAAAAAQACAA0AAAAIAAAAAQACAA4AAAAHAAAAAQACAA4AAAAGAAAAAQACAA4AAAAFAAAAAQACAA4AAAAEAAAAAQACAA4AAAADAAAAAQACAA4AAAACAAAAAQACAA4AAAABAAAAAQACAA4AAAAAAAAAAQACAA4AAAD//wAAAQACAA4AAAD+/wAAAQACAA4AAAD9/wAAAQACAA4AAAD8/wAAAQACAA4AAAAHAPj/AQABAA0AAAAGAPj/AQABAA0AAAAFAPj/AQABAA0AAAAEAPj/AQABAA0AAAADAPj/AQABAA0AAAACAPj/AQABAA0AAAABAPj/AQABAA0AAAAAAPj/AQABAA0AAAD///j/AQABAA0AAAD+//j/AQABAA0AAAD9//j/AQABAA0AAAD8//j/AQABAA0AAAA=")
+tile_map_data = PackedByteArray("AAASAAEAAQAEAAkAAAATAAEAAQAEAAkAAAAUAAEAAQAEAAkAAAAVAAEAAQAEAAkAAAAWAAEAAQAEAAkAAAAXAAEAAQAEAAkAAAAKAAEAAQAAAA8AABAJAAAAAQABAA4AABAJAAEAAQAIAA8AABAPAAEAAQAAAA8AAAAQAAAAAQABAA4AAAAQAAEAAQABAA8AAAARAAAAAQAPAAkAAAASAAAAAQACAA0AAAATAAAAAQACAA0AAAAUAAAAAQACAA0AAAAVAAAAAQACAA0AAAAWAAAAAQACAA0AAAAXAAAAAQAPAAkAAAAIAAAAAQACAA4AAAAHAAAAAQACAA4AAAAGAAAAAQACAA4AAAAFAAAAAQACAA4AAAAEAAAAAQACAA4AAAADAAAAAQACAA4AAAACAAAAAQACAA4AAAABAAAAAQACAA4AAAAAAAAAAQACAA4AAAD//wAAAQACAA4AAAD+/wAAAQACAA4AAAD9/wAAAQACAA4AAAD8/wAAAQACAA4AAAAHAPj/AQABAA0AAAAGAPj/AQABAA0AAAAFAPj/AQABAA0AAAAEAPj/AQABAA0AAAADAPj/AQABAA0AAAACAPj/AQABAA0AAAABAPj/AQABAA0AAAAAAPj/AQABAA0AAAD///j/AQABAA0AAAD+//j/AQABAA0AAAD9//j/AQABAA0AAAD8//j/AQABAA0AAAA=")
 tile_set = SubResource("TileSet_u5sy4")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
@@ -288,5 +289,8 @@ shape = SubResource("WorldBoundaryShape2D_u5sy4")
 
 [node name="ZoomOut" parent="." instance=ExtResource("7_u5sy4")]
 position = Vector2(131.195, 10.267)
+
+[node name="green_slime" parent="." instance=ExtResource("9_0tnpc")]
+position = Vector2(309.969, 8.54288)
 
 [connection signal="body_exited" from="ZoomOut" to="ZoomOut" method="_on_body_exited"]

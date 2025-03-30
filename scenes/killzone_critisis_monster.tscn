@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://odfcx83hejqn"]
+
+[ext_resource type="Script" uid="uid://cmqwpt3t3lg6l" path="res://scripts/killzone_monster.gd" id="1_pmyw2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fb67s"]
+radius = 11.0
+
+[node name="Killzone" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_pmyw2")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.001
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, -3)
+shape = SubResource("CircleShape2D_fb67s")
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(-16, 0)
+target_position = Vector2(9, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(-16, 0)
+target_position = Vector2(-9, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout" flags=6]
