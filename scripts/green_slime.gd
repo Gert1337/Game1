@@ -12,10 +12,13 @@ var health = 2
 
 
 
+
 func _ready() -> void:
 	add_to_group("monsters")
+	await get_tree().process_frame
 	audio_stream_player.play()
-	 # Restart when finished
+
+		 # Restart when finished
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -40,5 +43,6 @@ func take_damage() -> void:
 		speed = 0
 		audio_stream_player.queue_free()
 		animation_player.play("Dying")
+		animated_sprite.play("dying")
 		Helper.spawn_hearts(global_position, 2)
 		
