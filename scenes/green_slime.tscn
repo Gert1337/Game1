@@ -643,9 +643,7 @@ debug_color = Color(0.720547, 0.358841, 0.809828, 0.42)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_kq38r")
-animation = &"dying"
 autoplay = "default"
-frame_progress = 0.45326
 
 [node name="SelfCritisismSounds" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 position = Vector2(4, 2)

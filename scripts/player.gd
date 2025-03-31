@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -300.0
 const ACCELARATION = 600.0
 const FRICTION = 600.0
 const HEART_BULLET = preload("res://scenes/heart_bullet.tscn")
+const ENGINE_TIMESCALE_SLOWED = 0.5
+const ENGINE_TIMESCALE_DEFAULT = 1
 var can_shoot = true
 var fire_rate = 0.5  # Adjust shooting speed
 var player_direction = Vector2.RIGHT
@@ -105,14 +107,25 @@ func _on_animated_sprite_2d_animation_finished():
 			player_sprite.play("run")
 			
 func _on_player_took_damage():
-		if GameManager.health > 0 and shooting != true:
+		if GameManager.health > 0 and not shooting:
 			animation_player.play("hurt")
-		elif  GameManager.health > 0 and shooting == true:
+		elif  GameManager.health > 0 and shooting:
 			animation_player.play("shooting")
 		else: 
+				Engine.time_scale = ENGINE_TIMESCALE_SLOWED
 				animation_player.play("died")
-				speed = 0
-				
+				player_sprite.stop()
+				player_sprite.play("dying")
+				print("dying")
+				velocity = Vector2.ZERO
+				set_physics_process(false)  # Stop physics processing
+				print(player_sprite.sprite_frames.get_animation_names(), "Playing dying animation:", player_sprite.animation)
+				await get_tree().create_timer(1.5).timeout  # Wait before restarting
+				get_tree().reload_current_scene()
+				Engine.time_scale = ENGINE_TIMESCALE_DEFAULT
+				GameManager.health = 5
+				GameManager.score = 0
+				GameManager.update_health_display()
 				
 func shoot():
 	can_shoot = false
