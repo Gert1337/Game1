@@ -6,6 +6,7 @@ const ENGINE_TIMESCALE_DEFAULT = 1
 var health = 2
 @onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 @onready var self_critisism_sounds: AudioStreamPlayer2D = $"../AnimatedSprite2D/SelfCritisismSounds"
+@onready var animated_monster_sprite: AnimatedSprite2D = $"../AnimatedSprite2D"
 
 func _ready() -> void:
 	add_to_group("monsters")
@@ -17,6 +18,7 @@ func _on_body_entered(body: Node2D) -> void:
 		Engine.time_scale = ENGINE_TIMESCALE_SLOWED
 		self_critisism_sounds.queue_free()
 		animation_player.play("Victory")
+		animated_monster_sprite.play("Victory")
 		body.get_node("CollisionShape2D").queue_free()
 		timer.start()
 	

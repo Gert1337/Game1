@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://un71sagk5ow3"]
+[gd_scene load_steps=83 format=3 uid="uid://un71sagk5ow3"]
 
 [ext_resource type="Script" uid="uid://bomdy2uw8jajs" path="res://scripts/green_slime.gd" id="1_0pvn7"]
 [ext_resource type="Texture2D" uid="uid://bent4uwb1gphk" path="res://assets/sprites/SelfCritisismBest.png" id="2_4q1e0"]
@@ -28,6 +28,86 @@
 [ext_resource type="AudioStream" uid="uid://df3dhfvakj2k6" path="res://assets/sounds/monsterSelfCritisism/victory/Oh don_t look så suprised, you always knew.wav" id="25_253en"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_boo2g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77w56"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(864, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tr24l"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(896, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk3n4"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(928, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu6rb"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(960, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jpax"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(992, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpqei"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1024, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lou0w"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1056, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t61r"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1088, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su3ka"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1120, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnbka"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1152, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xcdw"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1184, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uthum"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1216, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4efmr"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1248, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45ylv"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1280, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7q5m"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1312, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4j5f"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1344, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iduuw"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1376, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfuyv"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1408, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts0gy"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1440, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt7i0"]
+atlas = ExtResource("2_4q1e0")
+region = Rect2(1472, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boo2g"]
 atlas = ExtResource("2_4q1e0")
@@ -135,6 +215,71 @@ region = Rect2(800, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kq38r"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77w56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tr24l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk3n4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu6rb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jpax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpqei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lou0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t61r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su3ka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnbka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xcdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uthum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4efmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45ylv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7q5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4j5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iduuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfuyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts0gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt7i0")
+}],
+"loop": true,
+"name": &"Victory",
+"speed": 11.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_boo2g")
@@ -378,18 +523,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7, 1.73333, 3.23333, 4.56667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 48.618, 4.972, 1), Color(1, 1, 1, 1), Color(1, 48.618, 4.972, 1), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_253en"]
 _data = {
@@ -412,9 +545,8 @@ debug_color = Color(0.720547, 0.358841, 0.809828, 0.42)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_kq38r")
+animation = &"Victory"
 autoplay = "default"
-frame = 25
-frame_progress = 0.290088
 
 [node name="SelfCritisismSounds" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 position = Vector2(4, 2)
@@ -433,6 +565,7 @@ stream = SubResource("AudioStreamRandomizer_yb2kl")
 
 [node name="VictorySound" type="AudioStreamPlayer2D" parent="AnimatedSprite2D"]
 stream = SubResource("AudioStreamRandomizer_253en")
+volume_db = 2.971
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
