@@ -7,7 +7,7 @@ var health = 5
 @onready var health_label: Label = $HealthLabel
 @export var heart_texture: Texture  
 @onready var health_container: HBoxContainer = $HBoxContainer
-signal player_took_damage
+signal player_took_damage(damaging_object)
 
 func _ready():
 	update_health_display()  # Sørger for, at UI starter med at vise hjerter
@@ -22,14 +22,14 @@ func add_point_to_score():
 	score_label.text ="Coins: "  + str(score)
 	print(score)
 
-func emit_damage_signal():
-	emit_signal("player_took_damage")
+func emit_damage_signal(object):
+	emit_signal("player_took_damage",object )
 
-func loose_life(amount): 
+func loose_life(amount, object = null): 
 	if health > 0:
 		health -= amount
 		update_health_display()
-		emit_damage_signal()
+		emit_damage_signal(object)
 	else: 
 		print("Gameover")
 		print(health)

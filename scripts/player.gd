@@ -43,6 +43,7 @@ func _physics_process(delta: float) -> void:
 			coyote_jump_timer.start()
 	position = position.round()
 	
+	
 func apply_gravity(delta):  
 		if not is_on_floor():
 			velocity += get_gravity() * delta	
@@ -106,12 +107,14 @@ func _on_animated_sprite_2d_animation_finished():
 			print("playing run")
 			player_sprite.play("run")
 			
-func _on_player_took_damage():
-		if GameManager.health > 0 and not shooting:
+func _on_player_took_damage(damaging_object):
+	
+		
+	if GameManager.health > 0 and not shooting:
 			animation_player.play("hurt")
-		elif  GameManager.health > 0 and shooting:
+	elif  GameManager.health > 0 and shooting:
 			animation_player.play("shooting")
-		else: 
+	else: 
 				Engine.time_scale = ENGINE_TIMESCALE_SLOWED
 				animation_player.play("died")
 				player_sprite.stop()
@@ -120,7 +123,11 @@ func _on_player_took_damage():
 				velocity = Vector2.ZERO
 				set_physics_process(false)  # Stop physics processing
 				print(player_sprite.sprite_frames.get_animation_names(), "Playing dying animation:", player_sprite.animation)
-				await get_tree().create_timer(1.5).timeout  # Wait before restarting
+				var kill_timer = 1.0
+				if damaging_object and damaging_object.name == "green_slime": 
+					kill_timer = 4.0
+				
+				await get_tree().create_timer(kill_timer).timeout  # Wait before restarting
 				get_tree().reload_current_scene()
 				Engine.time_scale = ENGINE_TIMESCALE_DEFAULT
 				GameManager.health = 5

@@ -15,8 +15,7 @@ var health = 2
 
 func _ready() -> void:
 	add_to_group("monsters")
-	await get_tree().process_frame
-	audio_stream_player.play()
+	
 
 		 # Restart when finished
 	
