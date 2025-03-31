@@ -81,7 +81,7 @@ func handle_player_animation(direction):
 			
 	if Input.is_action_just_pressed("shoot") and can_shoot:
 		if GameManager.health == 1: 
-			print("I cant shoot or ill die")
+			animation_player.play("OneHeart")
 		else : 
 			shoot()
 			print("shoot")	
