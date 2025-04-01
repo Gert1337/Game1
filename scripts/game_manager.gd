@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var score = 0 
+var diary_page_log = 0 
 
 var health = 5
 @onready var score_label: Label = $ScoreLabel
@@ -14,13 +14,13 @@ func _ready():
 	
 
 func _process(delta: float) -> void:
-	score_label.text ="Coins: "  + str(score)
+	score_label.text ="Pages found: "  + str(diary_page_log)
 
 
-func add_point_to_score(): 
-	score += 1
-	score_label.text ="Coins: "  + str(score)
-	print(score)
+func add_diary_page_to_log(): 
+	diary_page_log += 1
+	score_label.text ="Pages found: "  + str(diary_page_log)
+	print(diary_page_log)
 
 func emit_damage_signal(object):
 	emit_signal("player_took_damage",object )

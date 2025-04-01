@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dpsvfnqarcycb"]
+[gd_scene load_steps=14 format=4 uid="uid://dpsvfnqarcycb"]
 
 [ext_resource type="PackedScene" uid="uid://bb2eu7lh73fjx" path="res://scenes/game_manager.tscn" id="1_0tnpc"]
 [ext_resource type="Script" uid="uid://ceuoddai3vpqr" path="res://scenes/game.gd" id="1_gee14"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://ctdlfun4pat52" path="res://scripts/killzone_floor.gd" id="6_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bw51ieq5lg4jn" path="res://scenes/zoom_out.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://un71sagk5ow3" path="res://scenes/green_slime.tscn" id="9_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://bgt67clpbn1av" path="res://scenes/diary_page.tscn" id="10_vtaks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("2_iywne")
@@ -292,5 +293,17 @@ position = Vector2(131.195, 10.267)
 
 [node name="green_slime" parent="." instance=ExtResource("9_0tnpc")]
 position = Vector2(309.969, 8.54288)
+
+[node name="DiaryPage" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(57.9558, -31.7938)
+
+[node name="DiaryPage2" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(28.0993, -22.9302)
+
+[node name="DiaryPage3" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(68.6854, -0.537827)
+
+[node name="DiaryPage4" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(34.1639, -2.87036)
 
 [connection signal="body_exited" from="ZoomOut" to="ZoomOut" method="_on_body_exited"]

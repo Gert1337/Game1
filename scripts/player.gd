@@ -131,7 +131,7 @@ func _on_player_took_damage(damaging_object):
 				get_tree().reload_current_scene()
 				Engine.time_scale = ENGINE_TIMESCALE_DEFAULT
 				GameManager.health = 5
-				GameManager.score = 0
+				GameManager.diary_page_log = 0
 				GameManager.update_health_display()
 				
 func shoot():

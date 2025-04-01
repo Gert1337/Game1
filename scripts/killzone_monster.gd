@@ -13,7 +13,7 @@ func _ready() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	GameManager.loose_life(1, green_slime) # Opdater score og health
+	GameManager.loose_life(1, green_slime) 
 	if GameManager.health <= 0:
 		if self_critisism_sounds:
 			self_critisism_sounds.queue_free()

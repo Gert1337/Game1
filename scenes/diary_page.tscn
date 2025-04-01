@@ -1,29 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://bgt67clpbn1av"]
+[gd_scene load_steps=11 format=3 uid="uid://bgt67clpbn1av"]
 
-[ext_resource type="Script" uid="uid://w1mkvs4ujgl1" path="res://scripts/coin.gd" id="1_i64fm"]
-[ext_resource type="Texture2D" uid="uid://dttgf86ejgv5v" path="res://assets/sprites/Heart.png" id="2_11l1o"]
+[ext_resource type="Script" uid="uid://w1mkvs4ujgl1" path="res://scripts/diary_page.gd" id="1_i64fm"]
+[ext_resource type="Texture2D" uid="uid://c67nxycwh3vqq" path="res://assets/sprites/flyingdiary.png" id="2_11l1o"]
 [ext_resource type="AudioStream" uid="uid://d2knikqmv5lhm" path="res://assets/sounds/coin.wav" id="3_11l1o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d14el"]
 atlas = ExtResource("2_11l1o")
-region = Rect2(0, 0, 18, 18)
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ikuy"]
+atlas = ExtResource("2_11l1o")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ls27i"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d14el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ikuy")
 }],
 "loop": true,
 "name": &"default",
-"speed": 7.0
+"speed": 11.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ssuvv"]
 radius = 4.52769
 
 [sub_resource type="Animation" id="Animation_1ikuy"]
-length = 0.001
+length = 2.8
+loop_mode = 1
+capture_included = true
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -59,6 +68,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AnimatedSprite2D:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = false
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.396667, 0.533333, 0.723333, 0.9, 1.13333, 1.63333, 1.73333, 1.84333, 2.06333, 2.36333, 2.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 2,
+"values": [Vector2(-1, 0), Vector2(11, -8), Vector2(8, -13), Vector2(-4, -24), Vector2(9, -27), Vector2(9, -27), Vector2(-18, -17), Vector2(-17, -14), Vector2(-9, -9), Vector2(-17, -8), Vector2(0, 0), Vector2(-5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../CollisionShape2D:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = false
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.363333, 0.533333, 0.723333, 0.9, 1.13333, 1.63333, 1.73333, 1.84333, 2.06333, 2.36333, 2.56667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 2,
+"values": [Vector2(0, 0), Vector2(10, -8), Vector2(7, -13), Vector2(-4, -24), Vector2(8, -27), Vector2(8, -27), Vector2(-19, -17), Vector2(-18, -14), Vector2(-9, -9), Vector2(-17, -11), Vector2(0, 0), Vector2(-5, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_d14el"]
@@ -82,7 +115,7 @@ tracks/1/path = NodePath("../CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.0666667),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
@@ -106,7 +139,7 @@ tracks/3/path = NodePath("..")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.933333),
+"times": PackedFloat32Array(0.3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -120,7 +153,7 @@ _data = {
 &"pickup": SubResource("Animation_d14el")
 }
 
-[node name="Coin" type="Area2D"]
+[node name="DiaryPage" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_i64fm")
 
@@ -128,10 +161,9 @@ script = ExtResource("1_i64fm")
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_ls27i")
 autoplay = "default"
-frame_progress = 0.0362963
+frame_progress = 0.555842
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_ssuvv")
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
@@ -142,5 +174,6 @@ bus = &"SFX"
 libraries = {
 &"": SubResource("AnimationLibrary_wnlwo")
 }
+autoplay = "RESET"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

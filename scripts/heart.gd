@@ -6,5 +6,5 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	animation_player_heart.play("pickup")
-	if GameManager.score != null:
+	if GameManager.health != null:
 		GameManager.gain_life(1)

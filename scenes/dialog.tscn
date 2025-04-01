@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b5d7cki3u7n4e"]
+
+[node name="DialogBox" type="Node2D"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "hi"
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+text = "hi"
