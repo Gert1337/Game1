@@ -18,29 +18,38 @@ corner_radius_bottom_left = 8
 [node name="DialogBox" type="Control"]
 z_index = 14
 layout_mode = 3
-anchors_preset = 0
+offset_left = 443.0
+offset_top = 245.0
+offset_right = 726.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
 script = ExtResource("1_pkx4w")
 
 [node name="PanelContainer" type="Panel" parent="."]
-custom_minimum_size = Vector2(160, 24)
+custom_minimum_size = Vector2(81, 24)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = -69.0
-offset_right = 80.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = -1
+anchor_left = 0.519
+anchor_top = 0.5
+anchor_right = 0.519
+anchor_bottom = 0.5
+offset_left = -23.877
+offset_top = -67.5
+offset_right = 88.123
+offset_bottom = 76.5
+scale = Vector2(0.4, 0.4)
 theme_override_styles/panel = SubResource("StyleBoxFlat_36pgd")
 
 [node name="Titel" type="Label" parent="PanelContainer"]
-layout_mode = 2
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 151.0
-offset_bottom = 30.0
+layout_mode = 1
+offset_left = 10.0001
+offset_top = 17.5
+offset_right = 103.0
+offset_bottom = 40.5
 theme_override_fonts/font = ExtResource("2_tmfn4")
 theme_override_font_sizes/font_size = 8
 text = "hi"
@@ -50,10 +59,14 @@ text_overrun_behavior = 2
 
 [node name="Text" type="Label" parent="PanelContainer"]
 layout_mode = 2
-offset_left = 7.0
-offset_top = 25.0
-offset_right = 147.0
-offset_bottom = 58.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -28.5
+offset_right = 46.0
+offset_bottom = 4.5
 theme_override_fonts/font = ExtResource("3_auqi6")
 theme_override_font_sizes/font_size = 8
 text = "hi"
