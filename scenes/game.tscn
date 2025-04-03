@@ -312,4 +312,13 @@ position = Vector2(34.1639, -2.87036)
 [node name="DiaryPage5" parent="." instance=ExtResource("10_vtaks")]
 position = Vector2(260.813, -13.3553)
 
+[node name="DiaryPage" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(-12.6733, 0.659111)
+
+[node name="DiaryPage2" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(54.1117, 4.83636)
+
+[node name="DiaryPage6" parent="." instance=ExtResource("10_vtaks")]
+position = Vector2(70.9991, 6.11088)
+
 [connection signal="body_exited" from="ZoomOut" to="ZoomOut" method="_on_body_exited"]

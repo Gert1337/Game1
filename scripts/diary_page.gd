@@ -8,12 +8,16 @@ var diary_notes = [
 	{"title": "The Beginning", "text": "This is the first diary entry..."},
 	{"title": "A New Discovery", "text": "The second note reveals more secrets..."},
 	{"title": "Dark Realizations", "text": "A third note, things are getting interesting..."},
+	{"title": "The Truth", "text": "The final note, everything makes sense now!"},
+	{"title": "The Truth", "text": "The final note, everything makes sense now!"},
 	{"title": "The Truth", "text": "The final note, everything makes sense now!"}
 ]
 func _ready() -> void:
 	picked_up = false
+	print("yrint to connect to ui note")
 	if note_ui:
-			note_ui.connect("note_dismissed", Callable(self, "_on_note_dismissed"))
+			print("connected to ui npte")
+			GameManager.note_dismissed.connect(_on_note_dismissed)
 
 func _on_body_entered(body: Node2D) -> void:
 	if picked_up:
@@ -26,9 +30,9 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		if GameManager.diary_page_log != null:
 			GameManager.add_diary_page_to_log()
-			
+		
 		if note_ui and GameManager.diary_page_log < diary_notes.size():
-				var note = diary_notes[GameManager.diary_page_log - 1]
+				var note = diary_notes[GameManager.diary_page_index]
 				GameManager.add_diary_page_to_que(note)
 				GameManager.add_diary_page_to_storage(note)
 				print("Added note to queue:", note.title)
@@ -38,20 +42,19 @@ func _on_body_entered(body: Node2D) -> void:
 			return
 						
 func show_note():
-	if GameManager.queued_notes.size() > 0: 
+	if GameManager.queued_notes.size() > 0 and not GameManager.showing_diary_page: 
 		print("1qued:", GameManager.queued_notes)
 		var note = GameManager.get_next_note()
 		print("2qued:", GameManager.queued_notes)
 		print(" show first", note.title, GameManager.showing_diary_page)
 		note_ui.show_note(note["title"], note["text"])
-		GameManager.showing_diary_page = true
-		print("Show first node: quednotes:", GameManager.queued_notes)
+		
+
 				
 
 				
 func _on_note_dismissed():
 	print("Note dismissed", GameManager.showing_diary_page)
-	GameManager.showing_diary_page = false
 	print(GameManager.queued_notes.size()," maybe no quesed")
 	if GameManager.queued_notes.size() > 0: 
 		show_note()

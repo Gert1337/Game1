@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var diary_page_log = 0 
+var diary_page_index = -1
 var showing_diary_page = false
 var queued_notes: Array = [] 
 var diary_entries_storage = []
@@ -10,6 +11,7 @@ var health = 5
 @export var heart_texture: Texture  
 @onready var health_container: HBoxContainer = $HBoxContainer
 signal player_took_damage(damaging_object)
+signal note_dismissed
 
 
 func _ready():
@@ -22,6 +24,7 @@ func _process(delta: float) -> void:
 	
 func reset_game_state():
 	diary_page_log = 0
+	diary_page_index = -1
 	diary_entries_storage.clear()
 	queued_notes.clear()
 	showing_diary_page = false
@@ -31,9 +34,12 @@ func reset_game_state():
 	get_tree().reload_current_scene()
 
 func add_diary_page_to_log(): 
+	add_to_diary_index()
 	diary_page_log += 1
 	score_label.text ="Pages found: "  + str(diary_page_log)
 	print(diary_page_log)
+func add_to_diary_index(): 
+	diary_page_index += 1
 	
 func add_diary_page_to_storage(note: Dictionary):
 	diary_entries_storage.append(note)
@@ -43,7 +49,7 @@ func add_diary_page_to_que(note: Dictionary):
 	queued_notes.append(note)
 	print("Added note, in gamemanager:", note.title, "Queue size:", queued_notes.size())
 func get_next_note() -> Dictionary:
-	if queued_notes.size() > 0:
+	if queued_notes.size() > 0 and not showing_diary_page:
 		return queued_notes.pop_front()
 	return {}
 
