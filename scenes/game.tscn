@@ -270,10 +270,12 @@ position = Vector2(-7.63956, -9.74831)
 floor_snap_length = 15.5
 
 [node name="DialogBox" parent="Player" instance=ExtResource("6_kvpfn")]
-offset_left = 32.8415
-offset_top = 3.78793
-offset_right = 32.8415
-offset_bottom = 3.78793
+offset_left = 39.2141
+offset_top = 22.3264
+offset_right = 39.2141
+offset_bottom = 22.3264
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -5)
@@ -300,12 +302,6 @@ position = Vector2(131.195, 10.267)
 
 [node name="green_slime" parent="." instance=ExtResource("9_0tnpc")]
 position = Vector2(309.969, 8.54288)
-
-[node name="DiaryPage" parent="." instance=ExtResource("10_vtaks")]
-position = Vector2(57.9558, -31.7938)
-
-[node name="DiaryPage2" parent="." instance=ExtResource("10_vtaks")]
-position = Vector2(28.0993, -22.9302)
 
 [node name="DiaryPage3" parent="." instance=ExtResource("10_vtaks")]
 position = Vector2(68.6854, -0.537827)

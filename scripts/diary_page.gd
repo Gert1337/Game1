@@ -10,17 +10,48 @@ var diary_notes = [
 	{"title": "Dark Realizations", "text": "A third note, things are getting interesting..."},
 	{"title": "The Truth", "text": "The final note, everything makes sense now!"}
 ]
+func _ready() -> void:
+	if note_ui:
+			note_ui.connect("note_dismissed", Callable(self, "_on_note_dismissed"))
 
 func _on_body_entered(body: Node2D) -> void:
 	if picked_up:
 		print("tried picking up a second time")
 		return
-	picked_up = true
-	animation_player_diary.play("pickup")
-	if GameManager.diary_page_log != null:
-		GameManager.add_diary_page_to_log()
-	if note_ui:
-		if GameManager.diary_page_log < diary_notes.size():
-			print("ui")
-			var note = diary_notes[GameManager.diary_page_log]
-			note_ui.show_note(note.title, note.text)
+		
+	if body is CharacterBody2D:
+		picked_up = true
+		animation_player_diary.play("pickup")
+		
+		if GameManager.diary_page_log != null:
+			GameManager.add_diary_page_to_log()
+			
+		if note_ui and GameManager.diary_page_log < diary_notes.size():
+				var note = diary_notes[GameManager.diary_page_log - 1]
+				GameManager.add_diary_page_to_que(note)
+				print("Added note to queue:", note.title)
+		if not GameManager.showing_diary_page:
+			show_first_note()
+		else:
+			return
+						
+func show_first_note():
+	if GameManager.queued_notes.size() > 0: 
+		print("1qued:", GameManager.queued_notes)
+		var note = GameManager.get_next_note()
+		print("2qued:", GameManager.queued_notes)
+		print(" show first", note.title, GameManager.showing_diary_page)
+		note_ui.show_note(note["title"], note["text"])
+		GameManager.showing_diary_page = true
+		print("Show first node: quednotes:", GameManager.queued_notes)
+				
+
+				
+func _on_note_dismissed():
+	print("Note dismissed", GameManager.showing_diary_page)
+	GameManager.showing_diary_page = false
+	print(GameManager.queued_notes.size()," maybe no quesed")
+	if GameManager.queued_notes.size() > 0: 
+		show_first_note()
+	else:
+		print("no more notes")

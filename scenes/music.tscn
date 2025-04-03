@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dlepuxrs6sotm"]
+[gd_scene load_steps=3 format=3 uid="uid://dlepuxrs6sotm"]
 
 [ext_resource type="AudioStream" uid="uid://cdjdshuyrxjdx" path="res://assets/music/PianoKatharina1.mp3" id="1_05ggv"]
+[ext_resource type="Script" uid="uid://ba73mqowi8i26" path="res://scenes/music.gd" id="2_ibx2e"]
 
 [node name="Music" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_05ggv")
 autoplay = true
 bus = &"Music"
+script = ExtResource("2_ibx2e")
