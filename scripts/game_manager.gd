@@ -3,6 +3,7 @@ extends CanvasLayer
 var diary_page_log = 0 
 var showing_diary_page = false
 var queued_notes: Array = [] 
+var diary_entries_storage = []
 var health = 5
 @onready var score_label: Label = $ScoreLabel
 @onready var health_label: Label = $HealthLabel
@@ -12,18 +13,31 @@ signal player_took_damage(damaging_object)
 
 
 func _ready():
-	set_process_mode(Node.PROCESS_MODE_ALWAYS)
-	update_health_display()  # Sørger for, at UI starter med at vise hjerter
+	update_health_display()
+	 # Sørger for, at UI starter med at vise hjerter
 	
 
 func _process(delta: float) -> void:
 	score_label.text ="Pages found: "  + str(diary_page_log)
-
+	
+func reset_game_state():
+	diary_page_log = 0
+	diary_entries_storage.clear()
+	queued_notes.clear()
+	showing_diary_page = false
+	health = 5 
+	update_health_display()
+	
+	get_tree().reload_current_scene()
 
 func add_diary_page_to_log(): 
 	diary_page_log += 1
 	score_label.text ="Pages found: "  + str(diary_page_log)
 	print(diary_page_log)
+	
+func add_diary_page_to_storage(note: Dictionary):
+	diary_entries_storage.append(note)
+	print("Diary Storage:", diary_entries_storage)
 
 func add_diary_page_to_que(note: Dictionary):
 	queued_notes.append(note)
@@ -42,8 +56,8 @@ func loose_life(amount, object = null):
 		update_health_display()
 		emit_damage_signal(object)
 	else: 
-		print("Gameover")
-		print(health)
+		print("gameover")
+		
 func gain_life(amount): 
 		health += amount
 		update_health_display()

@@ -128,11 +128,8 @@ func _on_player_took_damage(damaging_object):
 					kill_timer = 4.0
 				
 				await get_tree().create_timer(kill_timer).timeout  # Wait before restarting
-				get_tree().reload_current_scene()
 				Engine.time_scale = ENGINE_TIMESCALE_DEFAULT
-				GameManager.health = 5
-				GameManager.diary_page_log = 0
-				GameManager.update_health_display()
+				GameManager.reset_game_state()
 				
 func shoot():
 	can_shoot = false

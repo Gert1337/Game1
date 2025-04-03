@@ -11,6 +11,7 @@ var diary_notes = [
 	{"title": "The Truth", "text": "The final note, everything makes sense now!"}
 ]
 func _ready() -> void:
+	picked_up = false
 	if note_ui:
 			note_ui.connect("note_dismissed", Callable(self, "_on_note_dismissed"))
 
@@ -29,13 +30,14 @@ func _on_body_entered(body: Node2D) -> void:
 		if note_ui and GameManager.diary_page_log < diary_notes.size():
 				var note = diary_notes[GameManager.diary_page_log - 1]
 				GameManager.add_diary_page_to_que(note)
+				GameManager.add_diary_page_to_storage(note)
 				print("Added note to queue:", note.title)
 		if not GameManager.showing_diary_page:
-			show_first_note()
+			show_note()
 		else:
 			return
 						
-func show_first_note():
+func show_note():
 	if GameManager.queued_notes.size() > 0: 
 		print("1qued:", GameManager.queued_notes)
 		var note = GameManager.get_next_note()
@@ -52,6 +54,6 @@ func _on_note_dismissed():
 	GameManager.showing_diary_page = false
 	print(GameManager.queued_notes.size()," maybe no quesed")
 	if GameManager.queued_notes.size() > 0: 
-		show_first_note()
+		show_note()
 	else:
 		print("no more notes")
