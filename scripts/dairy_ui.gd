@@ -4,6 +4,8 @@ var current_page = 0
 var note_ui_instance
 @onready var titel: Label = $CenterContainer/Panel/MarginContainer/TextControl/Titel
 @onready var text: Label = $CenterContainer/Panel/MarginContainer/TextControl/Text
+@onready var quanty: Label = $CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer/Quanty
+@onready var amount: Label = $CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer/Amount
 
 
 
@@ -25,6 +27,8 @@ func show_page(index:int):
 	var entry = GameManager.diary_entries_storage[index]
 	titel.text = entry.title
 	text.text = entry.text
+	quanty.text = str(current_page +1)
+	amount.text = str(GameManager.diary_page_log)
 	
 func _input(event: InputEvent) -> void:
 	if not visible:

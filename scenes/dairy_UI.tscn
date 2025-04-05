@@ -47,7 +47,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_stretch_ratio = 0.0
 theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
+theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 4
 
@@ -63,15 +63,44 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/TextControl"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Quanty" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0117647, 0.0117647, 0.00784314, 1)
+theme_override_fonts/font = ExtResource("3_pyx8b")
+theme_override_font_sizes/font_size = 16
+text = "1"
+
+[node name="of" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0117647, 0.0117647, 0.00784314, 1)
+theme_override_fonts/font = ExtResource("4_y5711")
+text = "of"
+
+[node name="Amount" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0117647, 0.0117647, 0.00784314, 1)
+theme_override_fonts/font = ExtResource("3_pyx8b")
+text = "1"
+
 [node name="Titel" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl"]
 layout_mode = 1
 offset_left = 15.0
-offset_top = 9.99997
-offset_right = 90.0
-offset_bottom = 33.0
+offset_top = 45.0
+offset_right = 262.0
+offset_bottom = 68.0
 theme_override_colors/font_color = Color(0, 0, 0, 0.989)
 theme_override_fonts/font = ExtResource("3_pyx8b")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "hi"
 autowrap_mode = 2
 clip_text = true
@@ -84,12 +113,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -129.0
-offset_top = -167.0
+offset_top = -120.0
 offset_right = 131.0
-offset_bottom = 178.0
+offset_bottom = 225.0
 theme_override_colors/font_color = Color(0, 0, 0, 0.994)
 theme_override_fonts/font = ExtResource("4_y5711")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 16
 text = "hi"
 autowrap_mode = 2
 clip_text = true
