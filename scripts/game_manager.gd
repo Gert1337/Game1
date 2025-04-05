@@ -12,12 +12,23 @@ var health = 5
 @onready var health_container: HBoxContainer = $HBoxContainer
 signal player_took_damage(damaging_object)
 signal note_dismissed
-
+const DAIRY_UI = preload("res://scenes/dairy_UI.tscn")
+var diary_ui_instance
+@onready var player = get_tree().root.get_node("Game/Player")
 
 func _ready():
 	update_health_display()
 	 # Sørger for, at UI starter med at vise hjerter
-	
+func _input(event: InputEvent) -> void:
+	if event.is_action("Open Diary"):
+		open_diary()
+
+func open_diary():
+	if not diary_ui_instance:  # If the diary UI hasn't been instantiated
+		diary_ui_instance = DAIRY_UI.instantiate()
+		player.add_child(diary_ui_instance)
+	 # Add it to the scene tree (or add it to a specific parent node)
+		diary_ui_instance.open_diary()
 
 func _process(delta: float) -> void:
 	score_label.text ="Pages found: "  + str(diary_page_log)

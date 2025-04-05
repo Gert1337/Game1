@@ -1,0 +1,140 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkudaxxmorc3h"]
+
+[ext_resource type="Script" uid="uid://rlfdsisxpfnd" path="res://scripts/dairy_ui.gd" id="1_0xf0n"]
+[ext_resource type="Texture2D" uid="uid://2dawtnkqbpp4" path="res://assets/sprites/diarypage_notorn.png" id="2_n458d"]
+[ext_resource type="FontFile" uid="uid://lhcl8yfyji7b" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_pyx8b"]
+[ext_resource type="FontFile" uid="uid://du4cunskre3u3" path="res://assets/fonts/PixelOperator8.ttf" id="4_y5711"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4wims"]
+texture = ExtResource("2_n458d")
+
+[node name="DialogBox" type="Control"]
+z_index = 23
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+script = ExtResource("1_0xf0n")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -89.0
+offset_right = 188.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/CenterContainer"]
+custom_minimum_size = Vector2(752, 512)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterContainer/Panel"]
+custom_minimum_size = Vector2(752, 512)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -89.0
+offset_right = 130.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="PanelContainer" type="Panel" parent="CanvasLayer/CenterContainer/Panel/MarginContainer"]
+custom_minimum_size = Vector2(112, 144)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_4wims")
+
+[node name="Titel" type="Label" parent="CanvasLayer/CenterContainer/Panel/MarginContainer/PanelContainer"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 9.99997
+offset_right = 90.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.989)
+theme_override_fonts/font = ExtResource("3_pyx8b")
+theme_override_font_sizes/font_size = 8
+text = "hi"
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 2
+
+[node name="Text" type="Label" parent="CanvasLayer/CenterContainer/Panel/MarginContainer/PanelContainer"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -63.0
+offset_right = 35.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.994)
+theme_override_fonts/font = ExtResource("4_y5711")
+theme_override_font_sizes/font_size = 8
+text = "hi"
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="PanelContainer2" type="Panel" parent="CanvasLayer/CenterContainer/Panel/MarginContainer"]
+custom_minimum_size = Vector2(112, 144)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_4wims")
+
+[node name="Titel" type="Label" parent="CanvasLayer/CenterContainer/Panel/MarginContainer/PanelContainer2"]
+layout_mode = 1
+offset_left = 15.0
+offset_top = 9.99997
+offset_right = 90.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.989)
+theme_override_fonts/font = ExtResource("3_pyx8b")
+theme_override_font_sizes/font_size = 8
+text = "hi"
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 2
+
+[node name="Text" type="Label" parent="CanvasLayer/CenterContainer/Panel/MarginContainer/PanelContainer2"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -41.0
+offset_top = -39.0
+offset_right = 34.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0, 0, 0, 0.994)
+theme_override_fonts/font = ExtResource("4_y5711")
+theme_override_font_sizes/font_size = 8
+text = "hi"
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 3
