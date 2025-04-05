@@ -41,9 +41,11 @@ func _input(event: InputEvent) -> void:
 		if current_page > 0:
 			current_page -=1
 			show_page(current_page)	
-	if event.is_action_pressed("cancel"):
-		print("cancel")
-		hide()
+	#if event.is_action_pressed("Open Diary"):
+		#print("cancel")
+		#hide()
 	
+func hide_diary():
+	hide()
 	
 	

@@ -5,6 +5,7 @@ var diary_page_index = -1
 var showing_diary_page = false
 var queued_notes: Array = [] 
 var diary_entries_storage = []
+var diary_visible = false
 var health = 5
 @onready var score_label: Label = $ScoreLabel
 @onready var health_label: Label = $HealthLabel
@@ -14,23 +15,17 @@ signal player_took_damage(damaging_object)
 signal note_dismissed
 const DAIRY_UI = preload("res://scenes/dairy_UI.tscn")
 var diary_ui_instance
-
+var input_blocked: bool = false
+var input_block_timer: Timer
+var block_timer_wait_time: float = 0.3
 
 func _ready():
 	update_health_display()
-	 # Sørger for, at UI starter med at vise hjerter
-func _input(event: InputEvent) -> void:
-	if event.is_action("Open Diary"):
-		open_diary()
-
-func open_diary():
-		diary_ui_instance = DAIRY_UI.instantiate()
-		get_tree().current_scene.add_child(diary_ui_instance)
-	 # Add it to the scene tree (or add it to a specific parent node)
-		diary_ui_instance.open_diary()
-
-func _process(delta: float) -> void:
-	score_label.text ="Pages found: "  + str(diary_page_log)
+	input_block_timer = Timer.new()
+	input_block_timer.one_shot = true
+	input_block_timer.wait_time = block_timer_wait_time  # Cooldown duration
+	add_child(input_block_timer)
+	input_block_timer.timeout.connect(_on_input_block_timeout)
 	
 func reset_game_state():
 	diary_page_log = 0
@@ -40,8 +35,37 @@ func reset_game_state():
 	showing_diary_page = false
 	health = 5 
 	update_health_display()
-	
 	get_tree().reload_current_scene()
+	
+func _on_input_block_timeout() -> void:
+	input_blocked = false
+	
+func _input(event: InputEvent) -> void:
+	if input_blocked:
+		return
+	if event.is_action("Open Diary"):
+		input_blocked = true
+		input_block_timer.start()
+		if not diary_visible: 
+			open_diary()
+			diary_visible = true
+		else: 
+			diary_ui_instance.hide_diary()
+			diary_visible = false
+	if event.is_action("cancel"):
+		diary_ui_instance.hide_diary()
+		diary_visible = false
+
+func open_diary():
+		diary_ui_instance = DAIRY_UI.instantiate()
+		get_tree().current_scene.add_child(diary_ui_instance)
+	 # Add it to the scene tree (or add it to a specific parent node)
+		diary_ui_instance.open_diary()
+		diary_visible = true
+
+func _process(delta: float) -> void:
+	score_label.text ="Pages found: "  + str(diary_page_log)
+	
 
 func add_diary_page_to_log(): 
 	add_to_diary_index()

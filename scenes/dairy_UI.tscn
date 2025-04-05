@@ -58,39 +58,10 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="TextControl" type="Control" parent="CenterContainer/Panel/MarginContainer"]
-custom_minimum_size = Vector2(288, 400)
+custom_minimum_size = Vector2(288, 446)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/TextControl"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
-grow_horizontal = 2
-
-[node name="Quanty" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.0117647, 0.0117647, 0.00784314, 1)
-theme_override_fonts/font = ExtResource("3_pyx8b")
-theme_override_font_sizes/font_size = 16
-text = "1"
-
-[node name="of" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.0117647, 0.0117647, 0.00784314, 1)
-theme_override_fonts/font = ExtResource("4_y5711")
-text = "of"
-
-[node name="Amount" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.0117647, 0.0117647, 0.00784314, 1)
-theme_override_fonts/font = ExtResource("3_pyx8b")
-text = "1"
 
 [node name="Titel" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl"]
 layout_mode = 1
@@ -123,3 +94,35 @@ text = "hi"
 autowrap_mode = 2
 clip_text = true
 text_overrun_behavior = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/TextControl"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -16.0
+offset_right = 33.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Quanty" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0117647, 0.0117647, 0.00784314, 1)
+theme_override_fonts/font = ExtResource("3_pyx8b")
+theme_override_font_sizes/font_size = 16
+text = "1"
+
+[node name="of" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0117647, 0.0117647, 0.00784314, 1)
+theme_override_fonts/font = ExtResource("4_y5711")
+text = "of"
+
+[node name="Amount" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0117647, 0.0117647, 0.00784314, 1)
+theme_override_fonts/font = ExtResource("3_pyx8b")
+text = "1"
