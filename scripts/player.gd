@@ -29,7 +29,7 @@ func _ready():
 		
 func _physics_process(delta: float) -> void:
 	if locked: 
-		move_and_slide()
+	
 		return
 	
 	apply_gravity(delta)
@@ -113,7 +113,7 @@ func _on_animated_sprite_2d_animation_finished():
 	print("Animation finished: " + player_sprite.animation)
 	if player_sprite.animation == "afformation":
 		locked = false
-		Helper.spawn_hearts(position, 1)
+		Helper.spawn_hearts(position, 1, 18)
 	if player_sprite.animation == "lifting":
 			can_shoot = false
 			print("playing run")
