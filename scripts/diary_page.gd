@@ -5,7 +5,7 @@ var picked_up: bool = false
 @onready var note_ui = get_parent().get_node("Player/DialogBox")
 
 var diary_notes = [
-	{"title": "The Beginning", "text": "This is the first diary entry..."},
+	{"title": "hhkj", "text": "I'm not sure I'll be a good Queen, i'm not even a good princess, I talk to much"},
 	{"title": "A New Discovery", "text": "The second note reveals more secrets..."},
 	{"title": "Dark Realizations", "text": "A third note, things are getting interesting..."},
 	{"title": "The Truth", "text": "The final note, everything makes sense now!"},

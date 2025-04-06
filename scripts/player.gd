@@ -12,6 +12,7 @@ var can_shoot = true
 var fire_rate = 0.5  # Adjust shooting speed
 var player_direction = Vector2.RIGHT
 var shooting = false
+var locked = false
 
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -27,6 +28,10 @@ func _ready():
 	
 		
 func _physics_process(delta: float) -> void:
+	if locked: 
+		move_and_slide()
+		return
+	
 	apply_gravity(delta)
 	handle_jumping(delta)
 	# Get the input direction : -1, 0, 1
@@ -82,12 +87,16 @@ func handle_player_animation(direction):
 		if player_sprite.animation != "jump":
 			player_sprite.play("jump")	
 			
-	if Input.is_action_just_pressed("shoot") and can_shoot:
+	if Input.is_action_just_pressed("shoot") and can_shoot and not locked:
 		if GameManager.health == 1: 
 			animation_player.play("OneHeart")
 		else : 
 			shoot()
 			print("shoot")	
+	if Input.is_action_just_pressed("afformation") and not locked:
+		locked = true
+		player_sprite.play("afformation")
+			
 	 
 			
 func play_animation(anim_name: String):
@@ -102,6 +111,9 @@ func play_animation(anim_name: String):
 
 func _on_animated_sprite_2d_animation_finished():
 	print("Animation finished: " + player_sprite.animation)
+	if player_sprite.animation == "afformation":
+		locked = false
+		Helper.spawn_hearts(position, 1)
 	if player_sprite.animation == "lifting":
 			can_shoot = false
 			print("playing run")
