@@ -25,14 +25,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="CenterContainer"]
-custom_minimum_size = Vector2(752, 512)
+custom_minimum_size = Vector2(752, 424)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxTexture_y5711")
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel"]
-custom_minimum_size = Vector2(752, 512)
+custom_minimum_size = Vector2(630, 249)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -46,54 +46,47 @@ offset_bottom = 89.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_stretch_ratio = 0.0
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_top = 0
 
 [node name="PictureControl" type="Control" parent="CenterContainer/Panel/MarginContainer"]
-custom_minimum_size = Vector2(288, 400)
+custom_minimum_size = Vector2(288, 343)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="TextControl" type="Control" parent="CenterContainer/Panel/MarginContainer"]
-custom_minimum_size = Vector2(288, 446)
+custom_minimum_size = Vector2(288, 343)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 0
+size_flags_vertical = 8
 
-[node name="Titel" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Panel/MarginContainer/TextControl"]
+custom_minimum_size = Vector2(285, 22)
 layout_mode = 1
-offset_left = 15.0
-offset_top = 45.0
-offset_right = 262.0
-offset_bottom = 68.0
+offset_right = 56.0
+offset_bottom = 36.0
+
+[node name="Titel" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 0.989)
 theme_override_fonts/font = ExtResource("3_pyx8b")
 theme_override_font_sizes/font_size = 16
 text = "hi"
 autowrap_mode = 2
-clip_text = true
-text_overrun_behavior = 2
 
-[node name="Text" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Panel/MarginContainer/TextControl/VBoxContainer"]
 layout_mode = 2
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -129.0
-offset_top = -120.0
-offset_right = 131.0
-offset_bottom = 225.0
+theme_override_constants/margin_top = 4
+
+[node name="Text" type="Label" parent="CenterContainer/Panel/MarginContainer/TextControl/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 0.994)
+theme_override_constants/line_spacing = 8
 theme_override_fonts/font = ExtResource("4_y5711")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "hi"
 autowrap_mode = 2
-clip_text = true
-text_overrun_behavior = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/Panel/MarginContainer/TextControl"]
 layout_mode = 1

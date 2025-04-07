@@ -2,8 +2,8 @@ extends CanvasLayer
 
 var current_page = 0 
 var note_ui_instance
-@onready var titel: Label = $CenterContainer/Panel/MarginContainer/TextControl/Titel
-@onready var text: Label = $CenterContainer/Panel/MarginContainer/TextControl/Text
+@onready var titel: Label = $CenterContainer/Panel/MarginContainer/TextControl/VBoxContainer/Titel
+@onready var text: Label = $CenterContainer/Panel/MarginContainer/TextControl/VBoxContainer/Text
 @onready var quanty: Label = $CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer/Quanty
 @onready var amount: Label = $CenterContainer/Panel/MarginContainer/TextControl/HBoxContainer/Amount
 
