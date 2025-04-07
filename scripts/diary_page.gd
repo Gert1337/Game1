@@ -5,10 +5,28 @@ var picked_up: bool = false
 @onready var note_ui = get_parent().get_node("Player/DialogBox")
 
 var diary_notes = [
-	{"title": "hhkj", "text": "I'm not sure I'll be a good Queen, i'm not even a good princess, I talk to much"},
-	{"title": "A New Discovery", "text": "The second note reveals more secrets..."},
-	{"title": "Dark Realizations", "text": "A third note, things are getting interesting..."},
-	{"title": "The Truth", "text": "The final note, everything makes sense now!"},
+	{"title": "A Heart That Burns", "text": "I was told a princess must guard her heart,
+	but mine refuse to stay quite.
+	It burns like starlight, wild and defiant. 
+	When I need it, I can cast it forward and, and when I do, it cuts through shadows like they were never real.
+	Maybe some parts of me are stronger than I thought."},
+	{"title": "The Key Is Real", "text": "There is a door in this strange dream. 
+	Tall, ancient, and stubborn as stone. 
+	I believe it leads to the waking world — to myself. 
+	It calls to me, quiet but certain — like it wants me to leave. 
+	But it won’t open... Not without the key.
+	And the key… it’s hiding. Like it’s waiting for me to believe I deserve it."},
+	{"title": "When I Let Go, I Breathe", "text": "This place takes pieces of me.
+	But when I rest — just rest — I feel something return.
+	I sat down today, and the silence wrapped around me like a soft cloak.
+	I think I felt whole again, even just for a moment.
+	Maybe stillness can be healing."},
+	{"title": "Love has weight", "text": "Some paths lead nowhere, some crumble beneath my feet.
+	But I have learned this:
+	The stones that seem lifeless may only be sleeping.
+	When I sat down, and shared my love, 
+	it stirred — not from force, but from my best wishes.
+	Even here, love has weight."},
 	{"title": "The Truth", "text": "The final note, everything makes sense now!"},
 	{"title": "The Truth", "text": "The final note, everything makes sense now!"}
 ]

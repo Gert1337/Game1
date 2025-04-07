@@ -1,6 +1,7 @@
 extends CanvasLayer
-@onready var title1: Label = $PanelContainer/Titel
-@onready var text1: Label = $PanelContainer/Text
+@onready var title1: Label = $PanelContainer/MarginContainer/VBoxContainer/Titel
+@onready var text1: Label = $PanelContainer/MarginContainer/VBoxContainer/Text
+
 
 
 
