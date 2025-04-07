@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 @onready var title1: Label = $PanelContainer/Titel
 @onready var text1: Label = $PanelContainer/Text
 

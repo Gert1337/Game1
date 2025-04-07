@@ -685,8 +685,9 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
-size = Vector2(10, 23)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
+radius = 4.0
+height = 22.0
 
 [sub_resource type="Animation" id="Animation_ur7pv"]
 resource_name = "OneHeart"
@@ -861,8 +862,8 @@ frame = 44
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -12.5)
-shape = SubResource("RectangleShape2D_fjrip")
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_fjrip")
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_qhqgy")
