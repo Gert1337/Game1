@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dpsvfnqarcycb"]
+[gd_scene load_steps=16 format=4 uid="uid://dpsvfnqarcycb"]
 
 [ext_resource type="PackedScene" uid="uid://bb2eu7lh73fjx" path="res://scenes/game_manager.tscn" id="1_0tnpc"]
 [ext_resource type="Script" uid="uid://ceuoddai3vpqr" path="res://scenes/game.gd" id="1_gee14"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bw51ieq5lg4jn" path="res://scenes/zoom_out.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://un71sagk5ow3" path="res://scenes/green_slime.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://bgt67clpbn1av" path="res://scenes/diary_page.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://c4iudy5fp64fj" path="res://scenes/dead_to_live_platform.tscn" id="12_dinhu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("2_iywne")
@@ -270,12 +271,6 @@ position = Vector2(-7.63956, -9.74831)
 floor_snap_length = 15.5
 
 [node name="DialogBox" parent="Player" instance=ExtResource("6_kvpfn")]
-offset_left = 39.2141
-offset_top = 22.3264
-offset_right = 39.2141
-offset_bottom = 22.3264
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -5)
@@ -320,5 +315,10 @@ position = Vector2(54.1117, 4.83636)
 
 [node name="DiaryPage6" parent="." instance=ExtResource("10_vtaks")]
 position = Vector2(70.9991, 6.11088)
+
+[node name="DeadToAlivePlatform" parent="." instance=ExtResource("12_dinhu")]
+position = Vector2(182.046, 18.7031)
+selected_movement_type = "Horizontal"
+speed = 92.0
 
 [connection signal="body_exited" from="ZoomOut" to="ZoomOut" method="_on_body_exited"]

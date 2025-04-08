@@ -13,10 +13,13 @@ var fire_rate = 0.5  # Adjust shooting speed
 var player_direction = Vector2.RIGHT
 var shooting = false
 var locked = false
+var current_platform: Node = null
+
 
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var coyote_jump_timer: Timer = $CoyoteJumpTimer
+signal player_healing
 
 func _ready():
 	if not player_sprite.animation_finished.is_connected(_on_animated_sprite_2d_animation_finished):
@@ -28,9 +31,6 @@ func _ready():
 	
 		
 func _physics_process(delta: float) -> void:
-	if locked: 
-	
-		return
 	
 	apply_gravity(delta)
 	handle_jumping(delta)
@@ -41,16 +41,23 @@ func _physics_process(delta: float) -> void:
 	handle_playersprite_flipping(direction)
 	handle_player_animation(direction)
 	var was_on_floor = is_on_floor()
+	if current_platform != null and is_on_floor():
+		if current_platform.has_method("get_movement_delta"):
+			position += current_platform.get_movement_delta()
+		
 	move_and_slide()
+			
+	position.round()
+	
 	var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >=0 
 	if just_left_ledge:
 			print("timer start")
 			coyote_jump_timer.start()
-	position = position.round()
+	
 	
 	
 func apply_gravity(delta):  
-		if not is_on_floor():
+		if not is_on_floor() and current_platform == null:
 			velocity += get_gravity() * delta	
 func handle_jumping(delta):
 		if is_on_floor() or coyote_jump_timer.time_left > 0.0:
@@ -96,6 +103,7 @@ func handle_player_animation(direction):
 	if Input.is_action_just_pressed("afformation") and not locked:
 		locked = true
 		player_sprite.play("afformation")
+		emit_signal("player_healing")
 			
 	 
 			
