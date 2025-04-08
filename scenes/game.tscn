@@ -318,7 +318,7 @@ position = Vector2(70.9991, 6.11088)
 
 [node name="DeadToAlivePlatform" parent="." instance=ExtResource("12_dinhu")]
 position = Vector2(182.046, 18.7031)
-selected_movement_type = "Horizontal"
+selected_movement_type = "Vertical"
 speed = 92.0
 
 [connection signal="body_exited" from="ZoomOut" to="ZoomOut" method="_on_body_exited"]

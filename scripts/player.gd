@@ -28,9 +28,13 @@ func _ready():
 	else: 
 		print("Signal not connected")	
 	GameManager.connect("player_took_damage", Callable(self, "_on_player_took_damage"))	
-	
+
+
 		
 func _physics_process(delta: float) -> void:
+	if locked: 
+		move_and_slide()
+		return
 	
 	apply_gravity(delta)
 	handle_jumping(delta)
@@ -102,8 +106,8 @@ func handle_player_animation(direction):
 			print("shoot")	
 	if Input.is_action_just_pressed("afformation") and not locked:
 		locked = true
-		player_sprite.play("afformation")
-		emit_signal("player_healing")
+		play_animation("afformation")
+		
 			
 	 
 			
@@ -122,6 +126,7 @@ func _on_animated_sprite_2d_animation_finished():
 	if player_sprite.animation == "afformation":
 		locked = false
 		Helper.spawn_hearts(position, 1, 18)
+		emit_signal("player_healing")
 	if player_sprite.animation == "lifting":
 			can_shoot = false
 			print("playing run")
