@@ -20,6 +20,7 @@ var current_platform: Node = null
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var coyote_jump_timer: Timer = $CoyoteJumpTimer
 signal player_healing
+signal player_starting_to_heal
 
 func _ready():
 	if not player_sprite.animation_finished.is_connected(_on_animated_sprite_2d_animation_finished):
@@ -107,6 +108,7 @@ func handle_player_animation(direction):
 	if Input.is_action_just_pressed("afformation") and not locked:
 		locked = true
 		play_animation("afformation")
+		emit_signal("player_starting_to_heal")
 		
 			
 	 

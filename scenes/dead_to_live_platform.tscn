@@ -1,11 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://c4iudy5fp64fj"]
+[gd_scene load_steps=24 format=3 uid="uid://c4iudy5fp64fj"]
 
 [ext_resource type="Script" uid="uid://ckkgxby6mmllb" path="res://scenes/dead_to_live_platform.gd" id="1_ivgxt"]
 [ext_resource type="Texture2D" uid="uid://c0syhyqfitb6n" path="res://assets/sprites/deadtoliveplatform.png" id="2_txnsl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mithi"]
 atlas = ExtResource("2_txnsl")
-region = Rect2(32, 0, 32, 16)
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltd3f"]
+atlas = ExtResource("2_txnsl")
+region = Rect2(0, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t3vq2"]
 atlas = ExtResource("2_txnsl")
@@ -28,6 +32,14 @@ atlas = ExtResource("2_txnsl")
 region = Rect2(192, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1d120"]
+atlas = ExtResource("2_txnsl")
+region = Rect2(224, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivgxt"]
+atlas = ExtResource("2_txnsl")
+region = Rect2(256, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_txnsl"]
 atlas = ExtResource("2_txnsl")
 region = Rect2(224, 0, 32, 16)
 
@@ -70,6 +82,9 @@ animations = [{
 "texture": SubResource("AtlasTexture_mithi")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_ltd3f")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_t3vq2")
 }, {
 "duration": 1.0,
@@ -86,10 +101,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1d120")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivgxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_txnsl")
 }],
-"loop": true,
+"loop": false,
 "name": &"comming_to_live",
-"speed": 4.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -137,8 +158,10 @@ script = ExtResource("1_ivgxt")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ltd3f")
+animation = &"comming_to_live"
 autoplay = "default"
-frame_progress = 0.845605
+frame = 7
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
