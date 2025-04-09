@@ -129,7 +129,7 @@ func _on_animated_sprite_2d_animation_finished():
 	print("Animation finished: " + player_sprite.animation)
 	if player_sprite.animation == "afformation":
 		locked = false
-		Helper.spawn_hearts(position, 1, 18)
+		Helper.spawn_hearts(position, 1, 18,0,10,-15)
 		emit_signal("player_healing")
 	if player_sprite.animation == "lifting":
 			can_shoot = false
