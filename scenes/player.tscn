@@ -886,4 +886,8 @@ stream = SubResource("AudioStreamRandomizer_ur7pv")
 [node name="OneHeartSound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_y4r1p")
 
+[node name="PlatformDetection" type="RayCast2D" parent="."]
+position = Vector2(0, -9)
+target_position = Vector2(0, 10)
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

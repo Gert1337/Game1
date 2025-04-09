@@ -79,8 +79,8 @@ func _on_player_starting_to_heal():
 		
 func _on_player_dection_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		player_on_platform = true
-		body.current_platform = self
+			player_on_platform = true
+			body.current_platform = self
 
 func _on_player_dection_body_exited(body: Node2D) -> void:
 	if body.name == "Player":

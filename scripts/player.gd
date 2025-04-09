@@ -15,7 +15,7 @@ var shooting = false
 var locked = false
 var current_platform: Node = null
 
-
+@onready var platform_detection: RayCast2D = $PlatformDetection
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var coyote_jump_timer: Timer = $CoyoteJumpTimer
@@ -47,8 +47,9 @@ func _physics_process(delta: float) -> void:
 	handle_player_animation(direction)
 	var was_on_floor = is_on_floor()
 	if current_platform != null and is_on_floor():
-		if current_platform.has_method("get_movement_delta"):
-			position += current_platform.get_movement_delta()
+		if platform_detection.is_colliding() and platform_detection.get_collider() == current_platform:
+			if current_platform.has_method("get_movement_delta"):
+				position += current_platform.get_movement_delta()
 		
 	move_and_slide()
 			
@@ -69,6 +70,7 @@ func handle_jumping(delta):
 			if Input.is_action_just_pressed("jump"):
 				print("trying to jump")
 				velocity.y = JUMP_VELOCITY
+				coyote_jump_timer.stop()
 		if not is_on_floor():
 				if Input.is_action_just_released("jump") and velocity.y < JUMP_VELOCITY / 2:
 					velocity.y = JUMP_VELOCITY / 2
