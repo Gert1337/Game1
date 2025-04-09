@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://0gq48y47u2mu" path="res://scripts/zoom_out.gd" id="1_ov6cn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_id41i"]
-size = Vector2(1.19985, 20)
+size = Vector2(0.650006, 124.16)
 
 [node name="ZoomOut" type="Area2D"]
 collision_layer = 2
@@ -11,7 +11,7 @@ collision_mask = 2
 script = ExtResource("1_ov6cn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.0500813, -6.84005)
+position = Vector2(0.325003, -58.92)
 shape = SubResource("RectangleShape2D_id41i")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
