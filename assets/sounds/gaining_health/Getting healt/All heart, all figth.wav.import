@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxkgn4rknue7"
+path="res://.godot/imported/All heart, all figth.wav-a9c788d4a5c099afb549e0b926eb577e.sample"
+
+[deps]
+
+source_file="res://assets/sounds/gaining_health/Getting healt/All heart, all figth.wav"
+dest_files=["res://.godot/imported/All heart, all figth.wav-a9c788d4a5c099afb549e0b926eb577e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

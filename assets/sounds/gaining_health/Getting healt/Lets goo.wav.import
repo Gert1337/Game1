@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dh1bkeaaf0rbf"
+path="res://.godot/imported/Lets goo.wav-c421156674bb9a5e596bc5a3faa616f5.sample"
+
+[deps]
+
+source_file="res://assets/sounds/gaining_health/Getting healt/Lets goo.wav"
+dest_files=["res://.godot/imported/Lets goo.wav-c421156674bb9a5e596bc5a3faa616f5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

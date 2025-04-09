@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cfpwap4t6qy2m"
+path="res://.godot/imported/Locked and loved.wav-e0c3c095816b8e70bf2bf1ff3c553c38.sample"
+
+[deps]
+
+source_file="res://assets/sounds/gaining_health/Getting healt/Locked and loved.wav"
+dest_files=["res://.godot/imported/Locked and loved.wav-e0c3c095816b8e70bf2bf1ff3c553c38.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

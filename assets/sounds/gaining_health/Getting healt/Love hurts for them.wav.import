@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cp5s1f28ll7go"
+path="res://.godot/imported/Love hurts for them.wav-fd3c394a819a0b3dadcb032e203e8f78.sample"
+
+[deps]
+
+source_file="res://assets/sounds/gaining_health/Getting healt/Love hurts for them.wav"
+dest_files=["res://.godot/imported/Love hurts for them.wav-fd3c394a819a0b3dadcb032e203e8f78.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

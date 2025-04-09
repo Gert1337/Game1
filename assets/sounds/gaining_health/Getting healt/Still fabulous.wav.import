@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ckf853ibpl6lc"
+path="res://.godot/imported/Still fabulous.wav-7c9d4059d840d6b43d22fd9c8e0a0193.sample"
+
+[deps]
+
+source_file="res://assets/sounds/gaining_health/Getting healt/Still fabulous.wav"
+dest_files=["res://.godot/imported/Still fabulous.wav-7c9d4059d840d6b43d22fd9c8e0a0193.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

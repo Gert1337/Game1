@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d3vt0wqv22atw"
+path="res://.godot/imported/Who knew love could explode.wav-a1b1e154211f2219794654e21742aa14.sample"
+
+[deps]
+
+source_file="res://assets/sounds/gaining_health/Getting healt/Who knew love could explode.wav"
+dest_files=["res://.godot/imported/Who knew love could explode.wav-a1b1e154211f2219794654e21742aa14.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

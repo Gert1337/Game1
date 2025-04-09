@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cccbgcdtjllv0"
+path="res://.godot/imported/Healing is also a strength.wav-2a08fbdc61ec9a18256b2e10ebfc47a7.sample"
+
+[deps]
+
+source_file="res://assets/sounds/gaining_health/Getting healt/Healing is also a strength.wav"
+dest_files=["res://.godot/imported/Healing is also a strength.wav-2a08fbdc61ec9a18256b2e10ebfc47a7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

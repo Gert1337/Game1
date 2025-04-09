@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dom3iipei8ob6"
+path="res://.godot/imported/Love guides my aim.wav-426d872b1fe842c94aefc815a0ccfa15.sample"
+
+[deps]
+
+source_file="res://assets/sounds/gaining_health/Getting healt/Love guides my aim.wav"
+dest_files=["res://.godot/imported/Love guides my aim.wav-426d872b1fe842c94aefc815a0ccfa15.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

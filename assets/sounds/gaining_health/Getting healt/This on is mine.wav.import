@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmr6tdgaxnruw"
+path="res://.godot/imported/This on is mine.wav-4f143468e11ca593830f72a07a0eddb2.sample"
+
+[deps]
+
+source_file="res://assets/sounds/gaining_health/Getting healt/This on is mine.wav"
+dest_files=["res://.godot/imported/This on is mine.wav-4f143468e11ca593830f72a07a0eddb2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
