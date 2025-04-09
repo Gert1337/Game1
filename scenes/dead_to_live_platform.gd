@@ -13,13 +13,15 @@ var direction := 1
 var player_on_platform := false
 var last_position: Vector2
 var movement_delta: Vector2 = Vector2.ZERO
-
+var player_under_platform = false 
 @onready var player_ref: CharacterBody2D = $"../Player"
 @onready var ray_down: RayCast2D = $RayCast2DDown
 @onready var ray_up: RayCast2D = $RayCast2D2Up
 @onready var ray_left: RayCast2D = $RayCast2D2Left
 @onready var ray_rigth: RayCast2D = $RayCast2D2Rigth
 @onready var platform_sprite: AnimatedSprite2D = $Sprite2D
+@onready var player_is_not_on_platform: CollisionShape2D = $PlayerUnderPlatformArea/PlayerIsNotOnPlatform
+
 
 
 
@@ -78,7 +80,7 @@ func _on_player_starting_to_heal():
 	
 		
 func _on_player_dection_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Player" and not player_under_platform:
 			player_on_platform = true
 			body.current_platform = self
 
@@ -86,3 +88,13 @@ func _on_player_dection_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		player_on_platform = false
 		body.current_platform = null 
+
+
+
+
+func _on_player_under_platform_area_body_entered(body: Node2D) -> void:
+	player_under_platform = true
+
+
+func _on_player_under_platform_area_body_exited(body: Node2D) -> void:
+	player_under_platform = false

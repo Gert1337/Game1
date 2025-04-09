@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c4iudy5fp64fj"]
+[gd_scene load_steps=25 format=3 uid="uid://c4iudy5fp64fj"]
 
 [ext_resource type="Script" uid="uid://ckkgxby6mmllb" path="res://scenes/dead_to_live_platform.gd" id="1_ivgxt"]
 [ext_resource type="Texture2D" uid="uid://c0syhyqfitb6n" path="res://assets/sprites/deadtoliveplatform.png" id="2_txnsl"]
@@ -153,6 +153,9 @@ size = Vector2(32, 5.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivgxt"]
 size = Vector2(32, 11)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txnsl"]
+size = Vector2(32, 12)
+
 [node name="DeadToAlivePlatform" type="AnimatableBody2D"]
 script = ExtResource("1_ivgxt")
 
@@ -185,5 +188,13 @@ position = Vector2(0, -1)
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_ivgxt")
 
+[node name="PlayerUnderPlatformArea" type="Area2D" parent="."]
+
+[node name="PlayerIsNotOnPlatform" type="CollisionShape2D" parent="PlayerUnderPlatformArea"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_txnsl")
+
 [connection signal="body_entered" from="PlayerDection" to="." method="_on_player_dection_body_entered"]
 [connection signal="body_exited" from="PlayerDection" to="." method="_on_player_dection_body_exited"]
+[connection signal="body_entered" from="PlayerUnderPlatformArea" to="." method="_on_player_under_platform_area_body_entered"]
+[connection signal="body_exited" from="PlayerUnderPlatformArea" to="." method="_on_player_under_platform_area_body_exited"]
