@@ -20,7 +20,7 @@ var player_under_platform = false
 @onready var ray_left: RayCast2D = $RayCast2D2Left
 @onready var ray_rigth: RayCast2D = $RayCast2D2Rigth
 @onready var platform_sprite: AnimatedSprite2D = $Sprite2D
-@onready var player_is_not_on_platform: CollisionShape2D = $PlayerUnderPlatformArea/PlayerIsNotOnPlatform
+
 
 
 
@@ -74,15 +74,18 @@ func _on_player_healing():
 				movement_type = MovementType.NONE
 
 func _on_player_starting_to_heal():
-	print("player starting to heal")
-	platform_sprite.play("comming_to_live")
+	if player_on_platform and player_under_platform == false:
+		print("player starting to heal")
+		platform_sprite.play("comming_to_live")
 
 	
 		
 func _on_player_dection_body_entered(body: Node2D) -> void:
-	if body.name == "Player" and not player_under_platform:
-			player_on_platform = true
-			body.current_platform = self
+	if body.name == "Player":
+			print("player enter, body under platform:", player_under_platform)
+			if player_under_platform == false:
+				player_on_platform = true
+				body.current_platform = self
 
 func _on_player_dection_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
@@ -93,8 +96,12 @@ func _on_player_dection_body_exited(body: Node2D) -> void:
 
 
 func _on_player_under_platform_area_body_entered(body: Node2D) -> void:
-	player_under_platform = true
+	if body.name == "Player":
+		print("player under platform")
+		player_under_platform = true
 
 
 func _on_player_under_platform_area_body_exited(body: Node2D) -> void:
-	player_under_platform = false
+	if body.name == "Player":
+		print("player no longer under platform")
+		player_under_platform = false
