@@ -3,8 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await get_tree().process_frame
-	RenderingServer.set_default_clear_color( Color.html("5b0024")
+	if not RenderingServer:
+		RenderingServer.set_default_clear_color( Color.html("5b0024")
 )
 
 
