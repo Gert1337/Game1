@@ -11,7 +11,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fjrip"]
 radius = 4.0
-height = 22.0
+height = 20.0
 
 [sub_resource type="Animation" id="Animation_ur7pv"]
 resource_name = "OneHeart"
@@ -910,14 +910,14 @@ target_position = Vector2(0, 1)
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(0, -5)
 offset = Vector2(33, -36)
-zoom = Vector2(5, 5)
+zoom = Vector2(4, 4)
 limit_bottom = 140
 limit_smoothed = true
 position_smoothing_speed = 18.0
 script = ExtResource("8_smehm")
 player = NodePath("..")
 smoothing_enabled = true
-smoothing_distance = 2
+smoothing_distance = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -15)

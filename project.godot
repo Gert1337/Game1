@@ -23,7 +23,7 @@ Helper="*res://scripts/helper.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/addons/smoothing/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
@@ -85,6 +85,11 @@ afformation={
 ]
 }
 
+[physics]
+
+2d/physics_engine="GodotPhysics2D"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+viewport/hdr_2d=true
