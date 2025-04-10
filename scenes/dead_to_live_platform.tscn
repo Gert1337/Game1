@@ -154,7 +154,7 @@ size = Vector2(32, 5.5)
 size = Vector2(32, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txnsl"]
-size = Vector2(32, 12)
+size = Vector2(36, 12)
 
 [node name="DeadToAlivePlatform" type="AnimatableBody2D"]
 script = ExtResource("1_ivgxt")
