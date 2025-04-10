@@ -52,8 +52,8 @@ func _physics_process(delta: float) -> void:
 				position += current_platform.get_movement_delta()
 		
 	move_and_slide()
-			
 	position.round()
+			
 	
 	var just_left_ledge = was_on_floor and not is_on_floor() and velocity.y >=0 
 	if just_left_ledge:

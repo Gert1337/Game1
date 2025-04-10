@@ -9,6 +9,7 @@ enum MovementType {
 var movement_type: MovementType = MovementType.NONE
 @export var speed: float = 50.0
 
+var real_position: Vector2
 var direction := 1
 var player_on_platform := false
 var last_position: Vector2
@@ -22,13 +23,10 @@ var player_under_platform = false
 @onready var platform_sprite: AnimatedSprite2D = $Sprite2D
 
 
-
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	last_position = position
+	real_position = position
 	if player_ref:
 		player_ref.connect("player_healing", Callable(self, "_on_player_healing"))
 		player_ref.connect("player_starting_to_heal", Callable(self, "_on_player_starting_to_heal"))
@@ -39,16 +37,15 @@ func _process(delta: float) -> void:
 	if movement_type == MovementType.NONE:
 		return
 
-	# Calculate movement delta
-	movement_delta = position - last_position
-	last_position = position
+	var delta_position := Vector2.ZERO
+	
 	match  movement_type: 
 		MovementType.VERTICAL: 
 			if direction == 1 and ray_up.is_colliding(): 
 				direction = -1 
 			elif direction == -1 and ray_down.is_colliding():
 				direction = 1
-			position.y += direction * speed * delta
+			delta_position.y += direction * speed * delta
 		
 		
 		MovementType.HORIZONTAL: 
@@ -56,8 +53,15 @@ func _process(delta: float) -> void:
 				direction = -1 
 			elif direction == -1 and ray_left.is_colliding():
 				direction = 1
-			position.x += direction * speed * delta
-
+			delta_position.x += direction * speed * delta
+			
+	# Apply movement to real_pos and then round it for rendering		
+	real_position += delta_position		
+	position = real_position.round()
+	
+	movement_delta = position - last_position
+	last_position = position
+	
 		
 func get_movement_delta() -> Vector2:
 	return movement_delta
