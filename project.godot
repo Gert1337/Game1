@@ -21,6 +21,10 @@ Music="*res://scenes/music.tscn"
 GameManager="*res://scenes/game_manager.tscn"
 Helper="*res://scripts/helper.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/addons/smoothing/plugin.cfg")
+
 [input]
 
 jump={

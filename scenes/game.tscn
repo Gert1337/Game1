@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=4 uid="uid://dpsvfnqarcycb"]
+[gd_scene load_steps=15 format=4 uid="uid://dpsvfnqarcycb"]
 
 [ext_resource type="PackedScene" uid="uid://bb2eu7lh73fjx" path="res://scenes/game_manager.tscn" id="1_0tnpc"]
 [ext_resource type="Script" uid="uid://ceuoddai3vpqr" path="res://scenes/game.gd" id="1_gee14"]
-[ext_resource type="Script" uid="uid://cc62c4t0o4npe" path="res://scripts/camera_2d.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://cd2mm4d0n5qu2" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://cua04dyq32sqd" path="res://assets/sprites/tile_map.png" id="2_iywne"]
 [ext_resource type="Texture2D" uid="uid://db1velaoawdky" path="res://assets/sprites/tile_mapmorelesspixel.png" id="3_vtaks"]
@@ -441,14 +440,6 @@ floor_snap_length = 15.5
 
 [node name="DialogBox" parent="Player" instance=ExtResource("6_kvpfn")]
 visible = false
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, -5)
-offset = Vector2(33, -36)
-zoom = Vector2(6, 6)
-limit_bottom = 140
-limit_smoothed = true
-script = ExtResource("1_p57ef")
 
 [node name="Foreground" type="TileMapLayer" parent="."]
 z_index = 15
