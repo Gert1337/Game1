@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://cd2mm4d0n5qu2"]
+[gd_scene load_steps=112 format=3 uid="uid://cd2mm4d0n5qu2"]
 
 [ext_resource type="Script" uid="uid://2wlnybnjy7np" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://c1l1t6hi0xanq" path="res://assets/sprites/Princess.png" id="2_qhqgy"]
@@ -192,6 +192,9 @@ stream_1/stream = ExtResource("6_fjrip")
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y4r1p"]
 streams_count = 1
 stream_0/stream = ExtResource("7_fjrip")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_smehm"]
+polygon = PackedVector2Array(-6, 9, -4, 8, -3, 7, -3, 1, -7, -3, -6, -5, -7, -7, -3, -9, -3, -13, -1, -14, 0, -12, 2, -14, 3, -13, 4, -9, 6, -7, 7, -7, 6, -6, 5, -5, 6, -4, 7, -3, 6, -3, 6, -2, 6, 0, 6, 2, 5, 6, 6, 7, 7, 10, 7, 12, 6, 13, 4, 14, -6, 14, -7, 12, -6, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2ulf"]
 atlas = ExtResource("2_qhqgy")
@@ -917,10 +920,14 @@ position_smoothing_speed = 18.0
 script = ExtResource("8_smehm")
 player = NodePath("..")
 smoothing_enabled = true
-smoothing_distance = 4
+smoothing_distance = 2
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-2, -16)
+occluder = SubResource("OccluderPolygon2D_smehm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, -15)
+position = Vector2(-2, -16)
 sprite_frames = SubResource("SpriteFrames_tuyoq")
 animation = &"afformation"
 autoplay = "idle"

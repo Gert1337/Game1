@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i3h8ng5fyd1m"
-path="res://.godot/imported/smoothing_2d.png-4942c58db397caab18506104d957cac1.ctex"
+uid="uid://c6esunvvxw00w"
+path="res://.godot/imported/Background-Mountains.png-524f0b48acd6f9a11ef69e2117770eab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/smoothing/smoothing_2d.png"
-dest_files=["res://.godot/imported/smoothing_2d.png-4942c58db397caab18506104d957cac1.ctex"]
+source_file="res://assets/sprites/Background-Mountains.png"
+dest_files=["res://.godot/imported/Background-Mountains.png-524f0b48acd6f9a11ef69e2117770eab.ctex"]
 
 [params]
 

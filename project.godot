@@ -21,6 +21,10 @@ Music="*res://scenes/music.tscn"
 GameManager="*res://scenes/game_manager.tscn"
 Helper="*res://scripts/helper.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray()
